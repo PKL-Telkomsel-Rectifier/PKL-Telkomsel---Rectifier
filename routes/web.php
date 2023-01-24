@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [RectifierController::class, 'index']);
+Route::get('/{rectifier:address}', [RectifierController::class, 'show']);

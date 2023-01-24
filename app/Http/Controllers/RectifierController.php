@@ -49,7 +49,12 @@ class RectifierController extends Controller
      */
     public function show(Rectifier $rectifier)
     {
-        //
+        return view('rectifier', [
+            'address' => $rectifier->address,
+            'community' => $rectifier->community,
+            'processor' => Rectifier::getProcess($rectifier),
+            'memory' => Rectifier::getMemory($rectifier),
+        ]);
     }
 
     /**

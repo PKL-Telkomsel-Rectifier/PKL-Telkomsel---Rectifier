@@ -20,7 +20,7 @@ class Rectifier extends Model
             'community' => $rectifier->community
         ]);
 
-        $result = $snmp->getValue('.1.3.6.1.2.1.25.1.6.0');
+        $result = $snmp->getValue($rectifier->oid_v);
 
         return $result;
     }
@@ -33,8 +33,13 @@ class Rectifier extends Model
             'community' => $rectifier->community
         ]);
 
-        $result = $snmp->getValue('.1.3.6.1.2.1.25.2.2.0');
+        $result = $snmp->getValue($rectifier->oid_t);
 
         return $result;
+    }
+
+    public function dataRectifiers()
+    {
+        return $this->hasMany(DataRectifier::class);
     }
 }

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="container">
 
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <img src="img/logo-tsel.png" alt="logo telkomsel" width="30" >
             Telkomsel
         </a>

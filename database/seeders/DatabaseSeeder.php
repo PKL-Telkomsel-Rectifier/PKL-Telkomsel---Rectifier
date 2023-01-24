@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         Rectifier::create([
             'address' => '127.0.0.1',
             'port' => 161,
-            'community' => 'serverpkl',
+            'community' => 'serverfaraday',
             'version' => 1,
         ]);
     }

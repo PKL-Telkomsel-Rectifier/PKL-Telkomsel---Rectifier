@@ -6,6 +6,10 @@
         <h1>All Rectifiers</h1>
     </div>
 
+    
+
+
+
     <div class="row">
         @foreach ($rectifiers as $rectifier)
         

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="container">
 
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="/home">
             <img src="img/logo-tsel.png" alt="logo telkomsel" width="30" >
             Telkomsel
         </a>
@@ -19,10 +19,10 @@
         <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="/form">Form</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

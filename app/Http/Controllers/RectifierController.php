@@ -15,9 +15,14 @@ class RectifierController extends Controller
      */
     public function index()
     {
-        return view('cnso', [
+        return view('home', [
             'rectifiers' => Rectifier::latest()->get(),
         ]);
+    }
+
+    public function form()
+    {
+        return view('form');
     }
 
     /**

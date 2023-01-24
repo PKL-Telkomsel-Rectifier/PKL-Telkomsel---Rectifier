@@ -15,4 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [RectifierController::class, 'index']);
+Route::get('/home', [RectifierController::class, 'index']);
+Route::get('/form', [RectifierController::class, 'form']);
 Route::get('/{rectifier:address}', [RectifierController::class, 'show']);

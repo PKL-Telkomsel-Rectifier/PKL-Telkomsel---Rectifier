@@ -10,4 +10,10 @@ class DataRectifier extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+
+    public function rectifier()
+    {
+        return $this->belongsTo(Rectifier::class);
+    }
 }

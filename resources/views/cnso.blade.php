@@ -6,6 +6,10 @@
         <h1>All Rectifiers</h1>
     </div>
 
+    
+
+
+
     <div class="row">
         @foreach ($rectifiers as $rectifier)
         
@@ -14,7 +18,7 @@
             <div class="card-body">
               <h5 class="card-title">Rectifier address : {{ $rectifier->address }}</h5>
               <p class="card-text">Community name : {{ $rectifier->community }}</p>
-              <a href="#" class="btn btn-primary">Details</a>
+              <a href="/{{ $rectifier->address }}" class="btn btn-primary">Details</a>
             </div>
           </div>
         </div>

@@ -15,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [RectifierController::class, 'index']);
+Route::get('/about', function () {
+    return view('about');
+});
+Route::get('/{rectifier:address}', [RectifierController::class, 'show']);

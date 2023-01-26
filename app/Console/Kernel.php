@@ -2,7 +2,9 @@
 
 namespace App\Console;
 
+use App\Models\DataRectifier;
 use App\Models\Rectifier;
+use Illuminate\Auth\Recaller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -23,7 +25,13 @@ class Kernel extends ConsoleKernel
 
             foreach ($rectifiers as $rectifier) {
                 # code...
-                DB::table('data_rectifiers')->insert([
+                // DB::table('data_rectifiers')->insert([
+                //     'rectifier_id' => $rectifier->id,
+                //     'processor' => $rectifier::getProcess($rectifier),
+                //     'memory' => $rectifier::getMemory($rectifier),
+                // ]);
+
+                DataRectifier::create([
                     'rectifier_id' => $rectifier->id,
                     'processor' => $rectifier::getProcess($rectifier),
                     'memory' => $rectifier::getMemory($rectifier),

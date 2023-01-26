@@ -4,9 +4,11 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\DataRectifier;
+use App\Models\User;
 use App\Models\Rectifier;
+use App\Models\DataRectifier;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,20 +26,31 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        User::create([
+            'username' => 'admin',
+            'password' => Hash::make('Telkomsel#1'),
+        ]);
+
         Rectifier::create([
-            'name' => 'localhost',
-            'address' => '127.0.0.1',
-            'port' => 161,
-            'community' => 'serverfaraday',
+            'oid_name' => '.1.3.6.1.2.1.1.5.0',
+            'site_name' => 'localhost',
+            'rtpo' => 'Semarang',
+            'nsa' => 'Gombel',
+            'type' => 'Inner',
+            'ip_recti' => '127.0.0.1',
+            'community' => 'serverpkl',
             'version' => 1,
-            'oid_v' => '.1.3.6.1.2.1.25.1.6.0',
-            'oid_t' => '.1.3.6.1.2.1.25.2.2.0',
+            'port' => 161,
+            'oid_voltage' => '.1.3.6.1.2.1.25.1.6.0',
+            'oid_temp' => '.1.3.6.1.2.1.25.2.2.0',
+            'oid_current' => '.1.3.6.1.2.1.25.1.1.0'
         ]);
 
         DataRectifier::create([
             'rectifier_id' => 1,
-            'processor' => 342,
-            'memory' => 234,
+            'voltage' => 342,
+            'current' => 234,
+            'temp' => 24.2,
         ]);
     }
 }

@@ -16,16 +16,6 @@ class RectifierController extends Controller
 
     public function index()
     {
-        return view('login');
-    }
-
-    public function login()
-    {
-        return view('login');
-    }
-
-    public function home()
-    {
         return view('home', [
             'rectifiers' => Rectifier::latest()->get(),
             'title' => 'Home'
@@ -69,10 +59,12 @@ class RectifierController extends Controller
     public function show(Rectifier $rectifier)
     {
         return view('rectifier', [
-            'address' => $rectifier->address,
+            'recti_name' => Rectifier::getName($rectifier),
+            'ip_recti' => $rectifier->ip_recti,
             'community' => $rectifier->community,
-            'processor' => Rectifier::getProcess($rectifier),
-            'memory' => Rectifier::getMemory($rectifier),
+            'voltage' => Rectifier::getVoltage($rectifier),
+            'current' => Rectifier::getCurrent($rectifier),
+            'temp' => Rectifier::getTemp($rectifier),
             'title' => 'Home'
         ]);
     }

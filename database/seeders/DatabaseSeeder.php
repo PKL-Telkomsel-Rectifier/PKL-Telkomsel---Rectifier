@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'localhost',
             'address' => '127.0.0.1',
             'port' => 161,
-            'community' => 'serverpkl',
+            'community' => 'serverfaraday',
             'version' => 1,
             'oid_v' => '.1.3.6.1.2.1.25.1.6.0',
             'oid_t' => '.1.3.6.1.2.1.25.2.2.0',

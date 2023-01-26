@@ -13,16 +13,30 @@ class RectifierController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
+    {
+        return view('login');
+    }
+
+    public function login()
+    {
+        return view('login');
+    }
+
+    public function home()
     {
         return view('home', [
             'rectifiers' => Rectifier::latest()->get(),
+            'title' => 'Home'
         ]);
     }
 
     public function form()
     {
-        return view('form');
+        return view('form', [
+            'title' => 'Form'
+        ]);
     }
 
     /**
@@ -59,6 +73,7 @@ class RectifierController extends Controller
             'community' => $rectifier->community,
             'processor' => Rectifier::getProcess($rectifier),
             'memory' => Rectifier::getMemory($rectifier),
+            'title' => 'Home'
         ]);
     }
 

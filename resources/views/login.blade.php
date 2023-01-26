@@ -40,7 +40,7 @@
                                 style="background-image: url('/img/memphis-bg.jpg'); border-radius: 1rem;; border-radius:1rem">
                                 <div class="card-body p-4 p-lg-5 text-black">
 
-                                    <form>
+                                    <form action="/" method="POST" autocomplete="off">
                                         @csrf
 
                                         <div
@@ -57,25 +57,43 @@
                                             account</h5>
 
                                         <div class="form-outline mb-4">
-                                            <input name="username" type="username" id="username"
-                                                class="form-control form-control-lg" />
+                                            <input name="username" type="text" id="username"
+                                                class="form-control form-control-lg @error('username') is-invalid @enderror"
+                                                autofocus value="{{ old('username') }}" />
                                             <label class="form-label" for="username">Username</label>
+                                            @error('username')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <input name="password" type="password" id="password"
-                                                class="form-control form-control-lg" />
+                                                class="form-control form-control-lg @error('password') is-invalid @enderror" />
                                             <label class="form-label" for="password">Password</label>
+                                            @error('password')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
 
-                                        <div class="pt-1 mb-4">
+                                        <div class="mt-5 mb-4">
                                             <button class="btn btn-primary btn-lg btn-block"
-                                                type="button">Login</button>
+                                                type="submit">Login</button>
                                         </div>
+
                                         <a class="small text-muted" href="/home">Langsung ke Dashboard</a>
 
                                     </form>
-
+                                    @if (session()->has('loginError'))
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            {{ session('loginError') }}
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                aria-label="Close"></button>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

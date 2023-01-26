@@ -15,10 +15,13 @@ return new class extends Migration
     {
         Schema::create('rectifiers', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
             $table->string('address')->unique();
             $table->integer('port');
             $table->string('community');
             $table->integer('version');
+            $table->string('oid_v');
+            $table->string('oid_t');
             $table->timestamps();
         });
     }

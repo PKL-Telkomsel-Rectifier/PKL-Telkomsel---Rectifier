@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RectifierController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [RectifierController::class, 'index']);
-Route::get('/login', [RectifierController::class, 'login']);
-Route::get('/home', [RectifierController::class, 'home']);
+// Route::get('/', [RectifierController::class, 'index']);
+Route::get('/', [LoginController::class, 'index']);
+Route::get('/home', [RectifierController::class, 'index']);
 Route::get('/form', [RectifierController::class, 'form']);
-Route::get('/rectifier/{rectifier:address}', [RectifierController::class, 'show']);
+Route::get('/rectifier/{rectifier:ip_recti}', [RectifierController::class, 'show']);

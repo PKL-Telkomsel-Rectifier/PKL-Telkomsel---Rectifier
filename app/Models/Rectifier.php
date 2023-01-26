@@ -12,28 +12,55 @@ class Rectifier extends Model
 
     protected $guarded = ['id'];
 
-    public static function getProcess($rectifier)
+    public static function getName($rectifier)
     {
+        // dd($rectifier->ip_recti);
         $snmp = new SnmpClient([
-            'host' => $rectifier->address,
+            'host' => $rectifier->ip_recti,
             'version' => $rectifier->version,
             'community' => $rectifier->community
         ]);
 
-        $result = $snmp->getValue($rectifier->oid_v);
+        $result = $snmp->getValue($rectifier->oid_name);
 
         return $result;
     }
 
-    public static function getMemory($rectifier)
+    public static function getVoltage($rectifier)
     {
         $snmp = new SnmpClient([
-            'host' => $rectifier->address,
+            'host' => $rectifier->ip_recti,
             'version' => $rectifier->version,
             'community' => $rectifier->community
         ]);
 
-        $result = $snmp->getValue($rectifier->oid_t);
+        $result = $snmp->getValue($rectifier->oid_voltage);
+
+        return $result;
+    }
+
+    public static function getCurrent($rectifier)
+    {
+        $snmp = new SnmpClient([
+            'host' => $rectifier->ip_recti,
+            'version' => $rectifier->version,
+            'community' => $rectifier->community
+        ]);
+
+        $result = $snmp->getValue($rectifier->oid_current);
+
+        return $result;
+    }
+
+    public static function getTemp($rectifier)
+    {
+        $snmp = new SnmpClient([
+            'host' => $rectifier->ip_recti,
+            'version' => $rectifier->version,
+            'community' => $rectifier->community
+        ]);
+
+        $result = $snmp->getValue($rectifier->oid_temp);
 
         return $result;
     }

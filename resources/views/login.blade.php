@@ -37,10 +37,11 @@
                                     alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center"
-                                style="background-image: url('/img/memphis-bg.jpg')">
+                                style="background-image: url('/img/memphis-bg.jpg'); border-radius:1rem">
                                 <div class="card-body p-4 p-lg-5 text-black">
 
                                     <form>
+                                        @csrf
 
                                         <div
                                             class="d-flex flex-column align-items-center justify-content-center mb-3 pb-1">
@@ -53,21 +54,20 @@
                                             account</h5>
 
                                         <div class="form-outline mb-4">
-                                            <input type="email" id="email" class="form-control form-control-lg" />
-                                            <label class="form-label" for="email">Email address</label>
+                                            <input name="username" type="username" id="username" class="form-control form-control-lg" />
+                                            <label class="form-label" for="username">Username</label>
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <input type="password" id="password"
+                                            <input name="password" type="password" id="password"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="password">Password</label>
                                         </div>
-
+                                        
                                         <div class="pt-1 mb-4">
                                             <button class="btn btn-primary btn-lg btn-block"
                                                 type="button">Login</button>
                                         </div>
-
                                         <a class="small text-muted" href="/home">Langsung ke Dashboard</a>
 
                                     </form>

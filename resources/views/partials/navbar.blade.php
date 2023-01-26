@@ -3,7 +3,7 @@
 
         <a class="navbar-brand" href="/home">
             <img src="/img/logo-tsel.png" alt="logo telkomsel" width="30">
-            Telkomsel
+            <img src="/img/telkomsel.png" alt="telkomsel" width="150">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"

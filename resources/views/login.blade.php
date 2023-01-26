@@ -37,15 +37,18 @@
                                     alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center"
-                                style="background-image: url('/img/memphis-bg.jpg')">
+                                style="background-image: url('/img/memphis-bg.jpg'); border-radius: 1rem;">
                                 <div class="card-body p-4 p-lg-5 text-black">
 
                                     <form>
 
                                         <div
                                             class="d-flex flex-column align-items-center justify-content-center mb-3 pb-1">
-                                            <img src="/img/logo-tsel.png" alt="Logo Telkomsel" width="150"
-                                                height="150">
+                                            <div class="multiple-images">
+                                                <img src="/img/logo-tsel.png" alt="Logo Telkomsel" width="75"
+                                                    height="75">
+                                                <img src="/img/telkomsel.png" alt="telkomsel" width="200">
+                                            </div>
                                             <span class="h1 fw-bold mb-0 pt-2">Monitoring Rectifier</span>
                                         </div>
 

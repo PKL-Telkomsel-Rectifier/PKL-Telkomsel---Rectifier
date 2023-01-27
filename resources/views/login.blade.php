@@ -30,7 +30,15 @@
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-xl-10">
-                    <div class="card shadow-lg" style="border-radius: 1rem;">
+                    @if (session()->has('loginError'))
+            
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ session('loginError') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        
+                    @endif
+                    <div class="card shadow-lg mt-3 mb-5" style="border-radius: 1rem;">
                         <div class="row g-0">
                             <div class="col-md-6 col-lg-5 d-none d-md-block">
                                 <img src="https://images.unsplash.com/photo-1611641613359-f698d54566dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2l0eSUyMGJ1aWxkaW5nfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
@@ -80,14 +88,7 @@
                                         <a class="small text-muted" href="/home">Langsung ke Dashboard</a>
 
                                     </form>
-                                    @if (session()->has('loginError'))
-            
-                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                            {{ session('loginError') }}
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>
-                                        
-                                    @endif
+                                    
                                 </div>
                             </div>
                         </div>

@@ -2,10 +2,10 @@
 
 @section('container')
     <div class="container text-center mb-5">
-        <h1>Rectifier name {{ $recti_name }} ( {{ $ip_recti }} )</h1>
+        <h1>Rectifier name {{ $name }} ( {{ $ip_recti }} )</h1>
     </div>
     <div class="container">
-        <h1>Voltage : {{ $voltage/10 }}</h1>
+        <h1>Voltage : {{ $voltage }}</h1>
         <h1>Current : {{ $current }}</h1>   
         <h1>Temp : {{ $temp }}</h1>
     </div>
@@ -25,7 +25,7 @@
             </div>
         </div>
     </div>
-    <div class="d-flex justify-content-end mt-3">
+    <div class="d-flex justify-content-end mt-3 mb-5">
         <a type="button" class="btn btn-primary" href="/home">Back</a>
     </div>
 

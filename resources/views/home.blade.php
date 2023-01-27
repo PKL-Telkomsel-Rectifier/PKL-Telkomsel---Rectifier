@@ -10,7 +10,7 @@
             <div class="col-sm-4 mb-3 mb-sm-0">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Rectifier name : {{ $rectifier->getName($rectifier) }}</h5>
+                        <h5 class="card-title">Rectifier name : {{ $rectifier->name }}</h5>
                         <p class="card-text">Community name : {{ $rectifier->community }}</p>
                         <a href="/rectifier/{{ $rectifier->ip_recti }}" class="btn btn-primary">Details</a>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
@@ -30,7 +30,11 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Rectifier Processor : </p>
+                                        @foreach ($rectifier->dataRectifiers as $data)
+                                            <p>Data voltage: {{ $data->voltage }}</p>
+                                            <p>Data current: {{ $data->current }}</p>
+                                            <p>Data temp: {{ $data->temp }}</p>
+                                        @endforeach
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"

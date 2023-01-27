@@ -12,20 +12,6 @@ class Rectifier extends Model
 
     protected $guarded = ['id'];
 
-    public static function getName($rectifier)
-    {
-        // dd($rectifier->ip_recti);
-        $snmp = new SnmpClient([
-            'host' => $rectifier->ip_recti,
-            'version' => $rectifier->version,
-            'community' => $rectifier->community
-        ]);
-
-        $result = $snmp->getValue($rectifier->oid_name);
-
-        return $result;
-    }
-
     public static function getVoltage($rectifier)
     {
         $snmp = new SnmpClient([
@@ -34,7 +20,7 @@ class Rectifier extends Model
             'community' => $rectifier->community
         ]);
 
-        $result = $snmp->getValue($rectifier->oid_voltage);
+        $result = $snmp->getValue($rectifier->oid_voltage) / 10;
 
         return $result;
     }

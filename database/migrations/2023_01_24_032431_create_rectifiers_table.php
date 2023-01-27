@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('rectifiers', function (Blueprint $table) {
             $table->id();
-            $table->string('oid_name')->unique();
+            $table->string('name')->unique();
             $table->string('site_name');
             $table->string('rtpo');
             $table->string('nsa');

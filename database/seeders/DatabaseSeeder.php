@@ -56,8 +56,8 @@ class DatabaseSeeder extends Seeder
             'version' => 2,
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
             'name' => 'Rectifier SSS.1',
@@ -70,8 +70,8 @@ class DatabaseSeeder extends Seeder
             'version' => 2,
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
             'name' => 'Rectifier SSS. 2',
@@ -84,8 +84,8 @@ class DatabaseSeeder extends Seeder
             'version' => 2,
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
             'name' => 'Rectifier BSS.2',
@@ -98,8 +98,8 @@ class DatabaseSeeder extends Seeder
             'version' => 2,
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
             'name' => 'Rectifier SSS.3',
@@ -112,8 +112,8 @@ class DatabaseSeeder extends Seeder
             'version' => 2,
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
             'name' => 'Rectifier R2.1',
@@ -126,8 +126,8 @@ class DatabaseSeeder extends Seeder
             'version' => 2,
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
             'name' => 'Rectifier R2.2',
@@ -140,8 +140,8 @@ class DatabaseSeeder extends Seeder
             'version' => 2,
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
             'name' => 'Rectifier R3.1',
@@ -154,8 +154,8 @@ class DatabaseSeeder extends Seeder
             'version' => 2,
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
             'name' => 'Rectifier CNO-1 R3.4',
@@ -168,8 +168,8 @@ class DatabaseSeeder extends Seeder
             'version' => 2,
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
             'name' => 'Rectifier CNO-2 R3.3',
@@ -182,8 +182,8 @@ class DatabaseSeeder extends Seeder
             'version' => 2,
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
 
         DataRectifier::create([

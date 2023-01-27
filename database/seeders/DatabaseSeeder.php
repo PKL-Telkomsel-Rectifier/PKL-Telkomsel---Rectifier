@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
             'nsa' => 'Gombel',
             'type' => 'Inner',
             'ip_recti' => '127.0.0.1',
-            'community' => 'serverpkl',
+            'community' => 'serverfaraday',
             'version' => 1,
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.2.1.25.1.6.0',

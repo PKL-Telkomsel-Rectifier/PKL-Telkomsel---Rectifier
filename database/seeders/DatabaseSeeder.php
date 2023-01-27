@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
         //     'oid_current' => '.1.3.6.1.2.1.25.1.1.0'
         // ]);
         Rectifier::create([
-            'name' => 'LAPTOP LEGION',
+            'name' => 'Rectifier BSS.1',
             'site_name' => 'TTC Nusukan',
             'rtpo' => 'SURAKARTA',
             'nsa' => 'SOLO',
@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
             'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
-            'name' => 'LAPTOP LEGION',
+            'name' => 'Rectifier SSS.1',
             'site_name' => 'TTC Nusukan',
             'rtpo' => 'SURAKARTA',
             'nsa' => 'SOLO',
@@ -74,7 +74,7 @@ class DatabaseSeeder extends Seeder
             'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
-            'name' => 'LAPTOP LEGION',
+            'name' => 'Rectifier SSS. 2',
             'site_name' => 'TTC Nusukan',
             'rtpo' => 'SURAKARTA',
             'nsa' => 'SOLO',
@@ -88,7 +88,7 @@ class DatabaseSeeder extends Seeder
             'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
-            'name' => 'LAPTOP LEGION',
+            'name' => 'Rectifier BSS.2',
             'site_name' => 'TTC Nusukan',
             'rtpo' => 'SURAKARTA',
             'nsa' => 'SOLO',
@@ -102,7 +102,7 @@ class DatabaseSeeder extends Seeder
             'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
-            'name' => 'LAPTOP LEGION',
+            'name' => 'Rectifier SSS.3',
             'site_name' => 'TTC Nusukan',
             'rtpo' => 'SURAKARTA',
             'nsa' => 'SOLO',
@@ -116,7 +116,7 @@ class DatabaseSeeder extends Seeder
             'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
-            'name' => 'LAPTOP LEGION',
+            'name' => 'Rectifier R2.1',
             'site_name' => 'TTC Solo Baru',
             'rtpo' => 'SURAKARTA',
             'nsa' => 'SOLO',
@@ -130,7 +130,7 @@ class DatabaseSeeder extends Seeder
             'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
-            'name' => 'LAPTOP LEGION',
+            'name' => 'Rectifier R2.2',
             'site_name' => 'TTC Solo Baru',
             'rtpo' => 'SURAKARTA',
             'nsa' => 'SOLO',
@@ -144,7 +144,7 @@ class DatabaseSeeder extends Seeder
             'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
-            'name' => 'LAPTOP LEGION',
+            'name' => 'Rectifier R3.1',
             'site_name' => 'TTC Solo Baru',
             'rtpo' => 'SURAKARTA',
             'nsa' => 'SOLO',
@@ -158,7 +158,7 @@ class DatabaseSeeder extends Seeder
             'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
-            'name' => 'LAPTOP LEGION',
+            'name' => 'Rectifier CNO-1 R3.4',
             'site_name' => 'TTC Solo Baru',
             'rtpo' => 'SURAKARTA',
             'nsa' => 'SOLO',
@@ -172,7 +172,7 @@ class DatabaseSeeder extends Seeder
             'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
         Rectifier::create([
-            'name' => 'LAPTOP LEGION',
+            'name' => 'Rectifier CNO-2 R3.3',
             'site_name' => 'TTC Solo Baru',
             'rtpo' => 'SURAKARTA',
             'nsa' => 'SOLO',

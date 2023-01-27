@@ -13,7 +13,6 @@
                         <h5 class="card-title">Rectifier name : {{ $rectifier->getName($rectifier) }}</h5>
                         <p class="card-text">Community name : {{ $rectifier->community }}</p>
                         <a href="/rectifier/{{ $rectifier->ip_recti }}" class="btn btn-primary">Details</a>
-                        <a href="/rectifier/{{ $rectifier->address }}" class="btn btn-primary">Details</a>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#rectifierData">
                             Launch demo modal

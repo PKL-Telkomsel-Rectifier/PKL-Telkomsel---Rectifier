@@ -31,12 +31,11 @@
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-xl-10">
                     @if (session()->has('loginError'))
-            
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             {{ session('loginError') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
                         </div>
-                        
                     @endif
                     <div class="card shadow-lg mt-3 mb-5" style="border-radius: 1rem;">
                         <div class="row g-0">
@@ -45,7 +44,7 @@
                                     alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center"
-                                style="background-image: url('/img/memphis-bg.jpg'); border-radius:1rem">
+                                style="background-image: url('/img/memphis-bg.jpg'); border-radius: 1rem;; border-radius:1rem">
                                 <div class="card-body p-4 p-lg-5 text-black">
 
                                     <form action="/" method="POST" autocomplete="off">
@@ -53,8 +52,11 @@
 
                                         <div
                                             class="d-flex flex-column align-items-center justify-content-center mb-3 pb-1">
-                                            <img src="/img/logo-tsel.png" alt="Logo Telkomsel" width="150"
-                                                height="150">
+                                            <div class="multiple-images">
+                                                <img src="/img/logo-tsel.png" alt="Logo Telkomsel" width="75"
+                                                    height="75">
+                                                <img src="/img/telkomsel.png" alt="telkomsel" width="200">
+                                            </div>
                                             <span class="h1 fw-bold mb-0 pt-2">Monitoring Rectifier</span>
                                         </div>
 
@@ -62,33 +64,37 @@
                                             account</h5>
 
                                         <div class="form-outline mb-4">
-                                            <input name="username" type="text" id="username" class="form-control form-control-lg @error('username') is-invalid @enderror" autofocus value="{{ old('username') }}" />
+                                            <input name="username" type="text" id="username"
+                                                class="form-control form-control-lg @error('username') is-invalid @enderror"
+                                                autofocus value="{{ old('username') }}" />
                                             <label class="form-label" for="username">Username</label>
                                             @error('username')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
                                             @enderror
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <input name="password" type="password" id="password" class="form-control form-control-lg @error('password') is-invalid @enderror" />
+                                            <input name="password" type="password" id="password"
+                                                class="form-control form-control-lg @error('password') is-invalid @enderror" />
                                             <label class="form-label" for="password">Password</label>
                                             @error('password')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
                                             @enderror
                                         </div>
-                                        
+
                                         <div class="mt-5 mb-4">
-                                            <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                                            <button class="btn btn-primary btn-lg btn-block"
+                                                type="submit">Login</button>
                                         </div>
 
                                         <a class="small text-muted" href="/home">Langsung ke Dashboard</a>
 
                                     </form>
-                                    
+
                                 </div>
                             </div>
                         </div>

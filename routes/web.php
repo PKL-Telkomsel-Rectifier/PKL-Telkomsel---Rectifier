@@ -16,8 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::get('/', [RectifierController::class, 'index']);
-Route::get('/', [LoginController::class, 'index']);
+Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/', [LoginController::class, 'authenticate']);
-Route::get('/home', [RectifierController::class, 'index']);
-Route::get('/form', [RectifierController::class, 'form']);
-Route::get('/rectifier/{rectifier:ip_recti}', [RectifierController::class, 'show']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/home', [RectifierController::class, 'index'])->middleware('auth');
+Route::get('/form', [RectifierController::class, 'form'])->middleware('auth');
+Route::get('/rectifier/{rectifier:ip_recti}', [RectifierController::class, 'show'])->middleware('auth');

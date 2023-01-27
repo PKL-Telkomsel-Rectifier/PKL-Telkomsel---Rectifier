@@ -41,11 +41,15 @@
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        @auth
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <button type="submit" class="nav-link" style="background-color: transparent; border-style:none"><i class="bi bi-box-arrow-right"></i> Logout</button>
+                            </form>
+                        @endauth
+                    </li>
                 </ul>
-                <form class="d-flex mt-3" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </div>

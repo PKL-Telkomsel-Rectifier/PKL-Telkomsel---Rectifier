@@ -8,38 +8,27 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
 
-                <form>
+                <form action="/form" method="POST">
+                    @csrf
+
                     <div class="mb-3">
-                        <label for="address" class="form-label">IP Address</label>
-                        <input type="text" class="form-control" id="address">
+                        <label class="form-label" for="rectiname">Rectifier Name</label>
+                        <input class="form-control" type="text" name="rectiname" id="rectiname">
                     </div>
+
                     <div class="mb-3">
-                        <label for="community" class="form-label">Community</label>
-                        <input type="text" class="form-control" id="community">
+                        <label class="form-label" for="sitename">Site Name</label>
+                        <input class="form-control" type="text" name="sitename" id="sitename">
                     </div>
+
                     <div class="mb-3">
-                        <label for="version" class="form-label">Version</label>
-                        <select id="version" class="form-select">
-                            <option hidden>Choose version...</option>
-                            <option>1</option>
-                            <option>2</option>
-                        </select>
+                        <label class="form-label" for="rectiname">Rectifier Name</label>
+                        <input class="form-control" type="text" name="rectiname" id="rectiname">
                     </div>
+
                     <div class="mb-3">
-                        <label for="oid-n" class="form-label">OID (Nama Rectifier)</label>
-                        <input type="text" class="form-control" id="oid-n">
-                    </div>
-                    <div class="mb-3">
-                        <label for="oid-v" class="form-label">OID (Voltage)</label>
-                        <input type="text" class="form-control" id="oid-v">
-                    </div>
-                    <div class="mb-3">
-                        <label for="oid-c" class="form-label">OID (Total Current)</label>
-                        <input type="text" class="form-control" id="oid-c">
-                    </div>
-                    <div class="mb-3">
-                        <label for="oid-t" class="form-label">OID (Temperature)</label>
-                        <input type="text" class="form-control" id="oid-t">
+                        <label class="form-label" for="rectiname">Rectifier Name</label>
+                        <input class="form-control" type="text" name="rectiname" id="rectiname">
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Submit</button>
                 </form>

@@ -6,7 +6,7 @@
             <div class="container text-center mb-3">
                 <h1>Form Rectifier</h1>
             </div>
-            
+
             {{-- FORM ADD RECTIFIER  --}}
             <form action="/form" method="POST" class="needs-validation" novalidate>
                 @csrf
@@ -14,7 +14,8 @@
                 <div class="row mx-3">
                     <div class="col-md-6">
                         <div class="form-floating mb-4">
-                            <input name="name" type="text" class="form-control @error('name') is-invalid @enderror" id="name" required>
+                            <input name="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                                id="name" required>
                             <label for="name" class="form-label text-black" style="font-weight: bold">Rectifier
                                 Name</label>
                             @error('name')
@@ -25,7 +26,8 @@
                         </div>
 
                         <div class="form-floating mb-4">
-                            <input type="text" name="site_name" class="form-control @error('site_name') is-invalid @enderror" id="site_name" required>
+                            <input type="text" name="site_name"
+                                class="form-control @error('site_name') is-invalid @enderror" id="site_name" required>
                             <label for="site_name" class="form-label text-black" style="font-weight: bold">Site Name</label>
                             @error('site_name')
                                 <div class="invalid-feedback">
@@ -73,11 +75,21 @@
                             </select>
                             <label for="type" class="form-label text-black" style="font-weight: bold">Type</label>
                         </div>
+                        <div class="form-floating mb-4">
+                            <select id="port" class="form-select" required>
+                                <option hidden value="">Choose port...</option>
+                                <option>161</option>
+                                <option>162</option>
+                            </select>
+                            <label for="port" class="form-label text-black" style="font-weight: bold">Port</label>
+                        </div>
+
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-floating mb-4">
-                            <input name="ip_recti" type="text" class="form-control @error('ip_recti') is-invalid @enderror" id="ip_recti" required>
+                            <input name="ip_recti" type="text"
+                                class="form-control @error('ip_recti') is-invalid @enderror" id="ip_recti" required>
                             <label for="ip_recti" class="form-label text-black" style="font-weight: bold">IP
                                 Rectifier</label>
                             @error('ip_recti')
@@ -88,7 +100,8 @@
                         </div>
 
                         <div class="form-floating mb-4">
-                            <input name="community" type="text" class="form-control @error('community') is-invalid @enderror" id="community" required>
+                            <input name="community" type="text"
+                                class="form-control @error('community') is-invalid @enderror" id="community" required>
                             <label for="community" class="form-label text-black" style="font-weight: bold">Community</label>
                             @error('community')
                                 <div class="invalid-feedback">
@@ -107,7 +120,8 @@
                         </div>
 
                         <div class="form-floating mb-4">
-                            <input name="oid_voltage" type="text" class="form-control @error('oid_voltage') is-invalid @enderror" id="oid_voltage" required>
+                            <input name="oid_voltage" type="text"
+                                class="form-control @error('oid_voltage') is-invalid @enderror" id="oid_voltage" required>
                             <label for="oid_voltage" class="form-label text-black" style="font-weight: bold">OID
                                 (Voltage)</label>
                             @error('oid_voltage')
@@ -118,8 +132,10 @@
                         </div>
 
                         <div class="form-floating mb-4">
-                            <input name="oid_current" type="text" class="form-control @error('oid_current') is-invalid @enderror" id="oid_current" required>
-                            <label for="oid_current" class="form-label text-black" style="font-weight: bold">OID (Total Current)</label>
+                            <input name="oid_current" type="text"
+                                class="form-control @error('oid_current') is-invalid @enderror" id="oid_current" required>
+                            <label for="oid_current" class="form-label text-black" style="font-weight: bold">OID (Total
+                                Current)</label>
                             @error('oid_current')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -128,7 +144,8 @@
                         </div>
 
                         <div class="form-floating mb-4">
-                            <input name="oid_temp" type="text" class="form-control @error('oid_temp') is-invalid @enderror" id="oid_temp" required>
+                            <input name="oid_temp" type="text"
+                                class="form-control @error('oid_temp') is-invalid @enderror" id="oid_temp" required>
                             <label for="oid_temp" class="form-label text-black" style="font-weight: bold">OID
                                 (Temperature)</label>
                             @error('oid_temp')

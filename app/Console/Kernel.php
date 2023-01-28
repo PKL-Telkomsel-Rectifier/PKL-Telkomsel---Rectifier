@@ -33,8 +33,9 @@ class Kernel extends ConsoleKernel
 
                 DataRectifier::create([
                     'rectifier_id' => $rectifier->id,
-                    'processor' => $rectifier::getProcess($rectifier),
-                    'memory' => $rectifier::getMemory($rectifier),
+                    'voltage' => $rectifier::getProcess($rectifier),
+                    'current' => $rectifier::getCurrent($rectifier),
+                    'temp' => $rectifier::getTemp($rectifier),
                 ]);
             }
         })->everyMinute();

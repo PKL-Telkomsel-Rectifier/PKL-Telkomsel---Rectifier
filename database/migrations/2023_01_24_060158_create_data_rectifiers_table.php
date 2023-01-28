@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('data_rectifiers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('rectifier_id');
-            $table->float('voltage');
-            $table->float('current');
-            $table->float('temp'); 
+            $table->double('voltage');
+            $table->double('current');
+            $table->double('temp');
             $table->timestamps();
         });
     }

@@ -67,12 +67,20 @@
                     <li>
                         <a class="dropdown-item" href="#">My profile</a>
                     </li>
+                    <li><hr class="m-0 dropdown-divider"></li>
                     <li>
-                        <a class="dropdown-item" href="#">Settings</a>
+                        @auth
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item"><i
+                                        class="bi bi-box-arrow-right"></i>
+                                    Logout</button>
+                            </form>
+                        @endauth
                     </li>
                 </ul>
             </div>
-            <div class="logoutBtn ms-4">
+            {{-- <div class="logoutBtn ms-4">
                 @auth
                     <form action="/logout" method="POST">
                         @csrf
@@ -81,7 +89,7 @@
                             Logout</button>
                     </form>
                 @endauth
-            </div>
+            </div> --}}
         </div>
         <!-- Right elements -->
     </div>

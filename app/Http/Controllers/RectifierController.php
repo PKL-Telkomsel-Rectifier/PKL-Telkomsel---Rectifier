@@ -49,16 +49,18 @@ class RectifierController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => ['required', 'unique:rectifiers,name'],
+            'name' => ['required', 'uniqure:rectifiers,name'],
             'site_name' => ['required'],
             'rtpo' => ['required'],
             'nsa' => ['required'],
             'type' => ['required'],
+            'port' => ['required'],
             'ip_recti' => ['required', 'unique:rectifiers,ip_recti', 'ip'],
             'community' => ['required'],
-            'oid_voltage' => ['required'],
-            'oid_current' => ['required'],
-            'oid_temp' => ['required'],
+            'version' => ['required'],
+            'oid_voltage' => ['required',],
+            'oid_current' => ['required',],
+            'oid_temp' => ['required',],
         ]);
 
         Rectifier::create($validatedData);

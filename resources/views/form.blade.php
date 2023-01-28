@@ -75,8 +75,9 @@
                             </select>
                             <label for="type" class="form-label text-black" style="font-weight: bold">Type</label>
                         </div>
+                        
                         <div class="form-floating mb-4">
-                            <select id="port" class="form-select" required>
+                            <select name="port" id="port" class="form-select" required>
                                 <option hidden value="">Choose port...</option>
                                 <option>161</option>
                                 <option>162</option>

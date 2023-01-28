@@ -54,6 +54,7 @@ class RectifierController extends Controller
             'rtpo' => ['required'],
             'nsa' => ['required'],
             'type' => ['required'],
+            'port' => ['required'],
             'ip_recti' => ['required', 'unique:rectifiers,ip_recti', 'ip'],
             'community' => ['required'],
             'oid_voltage' => ['required'],

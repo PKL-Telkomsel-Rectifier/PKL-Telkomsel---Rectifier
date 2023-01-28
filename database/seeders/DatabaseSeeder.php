@@ -45,152 +45,153 @@ class DatabaseSeeder extends Seeder
         //     'oid_temp' => '.1.3.6.1.2.1.25.2.2.0',
         //     'oid_current' => '.1.3.6.1.2.1.25.1.1.0'
         // ]);
-        Rectifier::create([
-            'name' => 'Rectifier BSS.1',
-            'site_name' => 'TTC Nusukan',
-            'rtpo' => 'SURAKARTA',
-            'nsa' => 'SOLO',
-            'type' => 'Inner',
-            'ip_recti' => '10.6.225.24',
-            'community' => 'public1',
-            'version' => 2,
-            'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
-        ]);
-        Rectifier::create([
-            'name' => 'Rectifier SSS.1',
-            'site_name' => 'TTC Nusukan',
-            'rtpo' => 'SURAKARTA',
-            'nsa' => 'SOLO',
-            'type' => 'Inner',
-            'ip_recti' => '10.6.225.25',
-            'community' => 'public1',
-            'version' => 2,
-            'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
-        ]);
-        Rectifier::create([
-            'name' => 'Rectifier SSS. 2',
-            'site_name' => 'TTC Nusukan',
-            'rtpo' => 'SURAKARTA',
-            'nsa' => 'SOLO',
-            'type' => 'Inner',
-            'ip_recti' => '10.6.225.22',
-            'community' => 'public1',
-            'version' => 2,
-            'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
-        ]);
-        Rectifier::create([
-            'name' => 'Rectifier BSS.2',
-            'site_name' => 'TTC Nusukan',
-            'rtpo' => 'SURAKARTA',
-            'nsa' => 'SOLO',
-            'type' => 'Inner',
-            'ip_recti' => '10.6.225.23',
-            'community' => 'public1',
-            'version' => 2,
-            'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
-        ]);
-        Rectifier::create([
-            'name' => 'Rectifier SSS.3',
-            'site_name' => 'TTC Nusukan',
-            'rtpo' => 'SURAKARTA',
-            'nsa' => 'SOLO',
-            'type' => 'Inner',
-            'ip_recti' => '10.6.225.21',
-            'community' => 'public1',
-            'version' => 2,
-            'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
-        ]);
-        Rectifier::create([
-            'name' => 'Rectifier R2.1',
-            'site_name' => 'TTC Solo Baru',
-            'rtpo' => 'SURAKARTA',
-            'nsa' => 'SOLO',
-            'type' => 'Inner',
-            'ip_recti' => '10.6.161.165',
-            'community' => 'public1',
-            'version' => 2,
-            'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
-        ]);
-        Rectifier::create([
-            'name' => 'Rectifier R2.2',
-            'site_name' => 'TTC Solo Baru',
-            'rtpo' => 'SURAKARTA',
-            'nsa' => 'SOLO',
-            'type' => 'Inner',
-            'ip_recti' => '10.6.161.173',
-            'community' => 'public1',
-            'version' => 2,
-            'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
-        ]);
-        Rectifier::create([
-            'name' => 'Rectifier R3.1',
-            'site_name' => 'TTC Solo Baru',
-            'rtpo' => 'SURAKARTA',
-            'nsa' => 'SOLO',
-            'type' => 'Inner',
-            'ip_recti' => '10.6.161.168',
-            'community' => 'public1',
-            'version' => 2,
-            'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
-        ]);
-        Rectifier::create([
-            'name' => 'Rectifier CNO-1 R3.4',
-            'site_name' => 'TTC Solo Baru',
-            'rtpo' => 'SURAKARTA',
-            'nsa' => 'SOLO',
-            'type' => 'Inner',
-            'ip_recti' => '10.6.161.166',
-            'community' => 'public1',
-            'version' => 2,
-            'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
-        ]);
-        Rectifier::create([
-            'name' => 'Rectifier CNO-2 R3.3',
-            'site_name' => 'TTC Solo Baru',
-            'rtpo' => 'SURAKARTA',
-            'nsa' => 'SOLO',
-            'type' => 'Inner',
-            'ip_recti' => '10.6.161.167',
-            'community' => 'public1',
-            'version' => 2,
-            'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
-            'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
-        ]);
+        
+        // Rectifier::create([
+        //     'name' => 'Rectifier BSS.1',
+        //     'site_name' => 'TTC Nusukan',
+        //     'rtpo' => 'SURAKARTA',
+        //     'nsa' => 'SOLO',
+        //     'type' => 'Inner',
+        //     'ip_recti' => '10.6.225.24',
+        //     'community' => 'public1',
+        //     'version' => 2,
+        //     'port' => 161,
+        //     'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
+        //     'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+        //     'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        // ]);
+        // Rectifier::create([
+        //     'name' => 'Rectifier SSS.1',
+        //     'site_name' => 'TTC Nusukan',
+        //     'rtpo' => 'SURAKARTA',
+        //     'nsa' => 'SOLO',
+        //     'type' => 'Inner',
+        //     'ip_recti' => '10.6.225.25',
+        //     'community' => 'public1',
+        //     'version' => 2,
+        //     'port' => 161,
+        //     'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
+        //     'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+        //     'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        // ]);
+        // Rectifier::create([
+        //     'name' => 'Rectifier SSS. 2',
+        //     'site_name' => 'TTC Nusukan',
+        //     'rtpo' => 'SURAKARTA',
+        //     'nsa' => 'SOLO',
+        //     'type' => 'Inner',
+        //     'ip_recti' => '10.6.225.22',
+        //     'community' => 'public1',
+        //     'version' => 2,
+        //     'port' => 161,
+        //     'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
+        //     'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+        //     'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        // ]);
+        // Rectifier::create([
+        //     'name' => 'Rectifier BSS.2',
+        //     'site_name' => 'TTC Nusukan',
+        //     'rtpo' => 'SURAKARTA',
+        //     'nsa' => 'SOLO',
+        //     'type' => 'Inner',
+        //     'ip_recti' => '10.6.225.23',
+        //     'community' => 'public1',
+        //     'version' => 2,
+        //     'port' => 161,
+        //     'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
+        //     'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+        //     'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        // ]);
+        // Rectifier::create([
+        //     'name' => 'Rectifier SSS.3',
+        //     'site_name' => 'TTC Nusukan',
+        //     'rtpo' => 'SURAKARTA',
+        //     'nsa' => 'SOLO',
+        //     'type' => 'Inner',
+        //     'ip_recti' => '10.6.225.21',
+        //     'community' => 'public1',
+        //     'version' => 2,
+        //     'port' => 161,
+        //     'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
+        //     'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+        //     'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        // ]);
+        // Rectifier::create([
+        //     'name' => 'Rectifier R2.1',
+        //     'site_name' => 'TTC Solo Baru',
+        //     'rtpo' => 'SURAKARTA',
+        //     'nsa' => 'SOLO',
+        //     'type' => 'Inner',
+        //     'ip_recti' => '10.6.161.165',
+        //     'community' => 'public1',
+        //     'version' => 2,
+        //     'port' => 161,
+        //     'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
+        //     'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+        //     'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        // ]);
+        // Rectifier::create([
+        //     'name' => 'Rectifier R2.2',
+        //     'site_name' => 'TTC Solo Baru',
+        //     'rtpo' => 'SURAKARTA',
+        //     'nsa' => 'SOLO',
+        //     'type' => 'Inner',
+        //     'ip_recti' => '10.6.161.173',
+        //     'community' => 'public1',
+        //     'version' => 2,
+        //     'port' => 161,
+        //     'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
+        //     'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+        //     'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        // ]);
+        // Rectifier::create([
+        //     'name' => 'Rectifier R3.1',
+        //     'site_name' => 'TTC Solo Baru',
+        //     'rtpo' => 'SURAKARTA',
+        //     'nsa' => 'SOLO',
+        //     'type' => 'Inner',
+        //     'ip_recti' => '10.6.161.168',
+        //     'community' => 'public1',
+        //     'version' => 2,
+        //     'port' => 161,
+        //     'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
+        //     'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+        //     'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        // ]);
+        // Rectifier::create([
+        //     'name' => 'Rectifier CNO-1 R3.4',
+        //     'site_name' => 'TTC Solo Baru',
+        //     'rtpo' => 'SURAKARTA',
+        //     'nsa' => 'SOLO',
+        //     'type' => 'Inner',
+        //     'ip_recti' => '10.6.161.166',
+        //     'community' => 'public1',
+        //     'version' => 2,
+        //     'port' => 161,
+        //     'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
+        //     'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+        //     'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        // ]);
+        // Rectifier::create([
+        //     'name' => 'Rectifier CNO-2 R3.3',
+        //     'site_name' => 'TTC Solo Baru',
+        //     'rtpo' => 'SURAKARTA',
+        //     'nsa' => 'SOLO',
+        //     'type' => 'Inner',
+        //     'ip_recti' => '10.6.161.167',
+        //     'community' => 'public1',
+        //     'version' => 2,
+        //     'port' => 161,
+        //     'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
+        //     'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
+        //     'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        // ]);
 
-        DataRectifier::create([
-            'rectifier_id' => 1,
-            'voltage' => 342,
-            'current' => 234,
-            'temp' => 24.2,
-        ]);
+        // DataRectifier::create([
+        //     'rectifier_id' => 1,
+        //     'voltage' => 342,
+        //     'current' => 234,
+        //     'temp' => 24.2,
+        // ]);
     }
 }

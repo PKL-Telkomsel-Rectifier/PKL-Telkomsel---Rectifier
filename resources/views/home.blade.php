@@ -1,11 +1,20 @@
 @extends('layouts.main')
 
 @section('container')
+
     <div class="container mb-4 text-center">
         <h1>All Rectifiers</h1>
     </div>
 
     <div class="row">
+        @if (session()->has('success'))
+                
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            
+        @endif
         @foreach ($rectifiers as $rectifier)
             <div class="col-sm-4 mb-3 mb-sm-0">
                 <div class="card">

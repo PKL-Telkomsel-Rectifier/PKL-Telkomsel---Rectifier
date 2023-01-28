@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Rectifier;
 use App\Http\Requests\StoreRectifierRequest;
 use App\Http\Requests\UpdateRectifierRequest;
+use Illuminate\Http\Request;
 
 class RectifierController extends Controller
 {
@@ -45,9 +46,23 @@ class RectifierController extends Controller
      * @param  \App\Http\Requests\StoreRectifierRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRectifierRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => ['required', 'unique:rectifiers,name'],
+            'site_name' => ['required'],
+            'rtpo' => ['required'],
+            'nsa' => ['required'],
+            'type' => ['required'],
+            'ip_recti' => ['required', 'unique:rectifiers,ip_recti', 'ip'],
+            'community' => ['required'],
+            'oid_voltage' => ['required'],
+            'oid_current' => ['required'],
+            'oid_temp' => ['required'],
+        ]);
+
+        Rectifier::create($validatedData);
+        return redirect('/home')->with('success', 'Rectifier berhasil ditambahkan.');
     }
 
     /**

@@ -55,6 +55,14 @@
                             </select>
                             <label for="type" class="form-label text-black" style="font-weight: bold">Type</label>
                         </div>
+                        <div class="form-floating mb-4">
+                            <select id="port" class="form-select" required>
+                                <option hidden value="">Choose port...</option>
+                                <option>161</option>
+                                <option>162</option>
+                            </select>
+                            <label for="port" class="form-label text-black" style="font-weight: bold">Port</label>
+                        </div>
 
                     </div>
                     <div class="col-md-6">

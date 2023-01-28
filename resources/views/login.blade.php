@@ -49,7 +49,6 @@
 
                                     <form action="/" method="POST" autocomplete="off">
                                         @csrf
-
                                         <div
                                             class="d-flex flex-column align-items-center justify-content-center mb-3 pb-1">
                                             <div class="multiple-images">

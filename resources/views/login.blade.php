@@ -12,6 +12,7 @@
     <style>
         body {
             background-image: url('/img/bloom-bg.jpg');
+            overflow: hidden;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -21,22 +22,20 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
-    <!-- MDB Script-->
+    <!-- MDB Script -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
+    <!-- Toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- Toastify Script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 
 <body>
     <section class="vh-100" style="background-image: url('/img/bloom-bg.jpg')">
-        <div class="container py-5 h-100">
+        <div class="container py-4 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-xl-10">
-                    @if (session()->has('loginError'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {{ session('loginError') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                aria-label="Close"></button>
-                        </div>
-                    @endif
+
                     <div class="card shadow-lg mt-3 mb-5" style="border-radius: 1rem;">
                         <div class="row g-0">
                             <div class="col-md-6 col-lg-5 d-none d-md-block">
@@ -90,8 +89,6 @@
                                                 type="submit">Login</button>
                                         </div>
 
-                                        <a class="small text-muted" href="/home">Langsung ke Dashboard</a>
-
                                     </form>
 
                                 </div>
@@ -110,6 +107,21 @@
         document.querySelectorAll('.form-outline').forEach((formOutline) => {
             new mdb.Input(formOutline).init();
         });
+
+        // Toast Error
+        @if (session()->has('loginError'))
+            Toastify({
+                text: "{{ session('loginError') }}",
+                duration: 3000,
+                close: true,
+                gravity: "top",
+                position: "right",
+                stopOnFocus: true,
+                style: {
+                    background: "#DC4C64",
+                },
+            }).showToast();
+        @endif
     </script>
 </body>
 

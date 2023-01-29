@@ -22,8 +22,22 @@
                 <li class="nav-item">
                     <a class="nav-link {{ $title === 'Form' ? 'active' : '' }}" href="/form">Form</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Projects</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Type Rectifier
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">TTC</a></li>
+                        <li>
+                            <hr class="dropdown-divider m-0">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Inner</a></li>
+                        <li>
+                            <hr class="dropdown-divider m-0">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Outer</a></li>
+                    </ul>
                 </li>
             </ul>
             <!-- Left links -->
@@ -67,13 +81,14 @@
                     <li>
                         <a class="dropdown-item" href="#">My profile</a>
                     </li>
-                    <li><hr class="m-0 dropdown-divider"></li>
+                    <li>
+                        <hr class="m-0 dropdown-divider">
+                    </li>
                     <li>
                         @auth
                             <form action="/logout" method="POST">
                                 @csrf
-                                <button type="submit" class="dropdown-item"><i
-                                        class="bi bi-box-arrow-right"></i>
+                                <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i>
                                     Logout</button>
                             </form>
                         @endauth

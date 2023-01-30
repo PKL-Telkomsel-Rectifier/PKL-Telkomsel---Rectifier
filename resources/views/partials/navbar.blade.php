@@ -26,7 +26,6 @@
 
         </div>
 
-
         <!-- Right elements -->
         <div class="d-flex align-items-center">
 
@@ -55,7 +54,5 @@
                 </ul>
             </div>
         </div>
-
     </div>
-
 </nav>

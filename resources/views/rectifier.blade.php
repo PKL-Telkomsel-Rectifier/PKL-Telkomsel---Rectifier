@@ -6,7 +6,7 @@
     </div>
     <div class="container">
         <h1>Voltage : {{ $voltage }}</h1>
-        <h1>Current : {{ $current }}</h1>   
+        <h1>Current : {{ $current }}</h1>
         <h1>Temp : {{ $temp }}</h1>
     </div>
     <div class="row">

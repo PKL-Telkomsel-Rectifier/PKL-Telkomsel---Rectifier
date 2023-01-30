@@ -12,26 +12,29 @@
                     Type Rectifier
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">TTC</a></li>
+                    <li><a class="dropdown-item" href="/home?type=TTC">TTC</a></li>
                     <li>
                         <hr class="dropdown-divider m-0">
                     </li>
-                    <li><a class="dropdown-item" href="#">Inner</a></li>
+                    <li><a class="dropdown-item" href="/home?type=Inner">Inner</a></li>
                     <li>
                         <hr class="dropdown-divider m-0">
                     </li>
-                    <li><a class="dropdown-item" href="#">Outer</a></li>
+                    <li><a class="dropdown-item" href="/home?type=Outer">Outer</a></li>
                 </ul>
             </div>
         </div>
+
         <div class="p-1 bg-light rounded shadow-sm mb-4">
-            <div class="input-group">
-                <input type="search" name="search" placeholder="Search..." class="form-control border-0 bg-light">
-                <div class="input-group-append">
-                    <button id="searchBtn" type="submit" name="searchBtn" class="btn btn-link text-primary"><i
-                            class="fa fa-search"></i></button>
+            <form action="/home" method="GET">
+                <div class="input-group">
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Search..." class="form-control border-0 bg-light">
+                    <div class="input-group-append">
+                        <button id="searchBtn" type="submit" name="searchBtn" class="btn btn-link text-primary"><i
+                                class="fa fa-search"></i></button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 

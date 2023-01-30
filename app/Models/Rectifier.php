@@ -20,7 +20,8 @@ class Rectifier extends Model
     {
         $query->when($filters['search'] ?? false, function ($query, $search) {
             return $query->where(function ($query) use ($search) {
-                $query->where('ip_recti', 'like', '%' . $search . '%');
+                $query->where('site_name', 'like', '%' . $search . '%')
+                    ->orWhere('ip_recti', 'like', '%' . $search . '%');
             });
         });
 

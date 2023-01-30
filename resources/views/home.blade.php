@@ -62,13 +62,16 @@
                         <div class="modal-dialog modal-dialog-centered modal-xl">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="modalRecti">Modal title</h1>
+                                    <h1 class="modal-title fs-5" id="modalRecti">{{ $rectifier->name }}
+                                        ({{ $rectifier->ip_recti }}) Details</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     @foreach ($rectifier->dataRectifiers as $data)
                                         Voltage : {{ $data->voltage }} V<br>
+                                        Current : {{ $data->current }} A<br>
+                                        Temperature : {{ $data->temp }} °C<br>
                                         <div class="d-flex justify-content-center">
                                             <div class="card p-3">
                                                 <div style="width: 600px; margin: auto;">
@@ -79,8 +82,7 @@
                                     @endforeach
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>

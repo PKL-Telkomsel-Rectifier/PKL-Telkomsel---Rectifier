@@ -11,6 +11,26 @@ class Rectifier extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $with = ['dataRectifiers'];
+
+
+    // METHOD 
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'] ?? false, function ($query, $search) {
+            return $query->where(function ($query) use ($search) {
+                $query->where('ip_recti', 'like', '%' . $search . '%');
+            });
+        });
+
+        $query->when($filters['type'] ?? false, function ($query, $search) {
+            return $query->where(function ($query) use ($search) {
+                $query->where('type', 'like', '%' . $search . '%');
+            });
+        });
+    }
+
 
     public static function getVoltage($rectifier)
     {

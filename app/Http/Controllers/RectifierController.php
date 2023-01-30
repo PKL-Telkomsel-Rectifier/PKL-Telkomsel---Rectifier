@@ -17,9 +17,14 @@ class RectifierController extends Controller
 
     public function index()
     {
+        $title = '';
+        if (request('type')) {
+            $title = ' in ' . request('type');
+        }
+
         return view('home', [
-            'rectifiers' => Rectifier::latest()->get(),
-            'title' => 'Home'
+            'rectifiers' => Rectifier::latest()->filter(request(['search', 'type']))->paginate(12)->withQueryString(),
+            'title' => 'All Rectifier' . $title
         ]);
     }
 

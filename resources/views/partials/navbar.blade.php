@@ -22,31 +22,13 @@
                 <li class="nav-item">
                     <a class="nav-link {{ $title === 'Form' ? 'active' : '' }}" href="/form">Form</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Type Rectifier
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/home?type=TTC">TTC</a></li>
-                        <li>
-                            <hr class="dropdown-divider m-0">
-                        </li>
-                        <li><a class="dropdown-item" href="/home?type=Inner">Inner</a></li>
-                        <li>
-                            <hr class="dropdown-divider m-0">
-                        </li>
-                        <li><a class="dropdown-item" href="/home?type=Outer">Outer</a></li>
-                    </ul>
-                </li>
             </ul>
-            <!-- Left links -->
+
         </div>
-        <!-- Collapsible wrapper -->
 
         <!-- Right elements -->
         <div class="d-flex align-items-center">
-            <!-- Avatar -->
+
             <div class="dropdown">
                 <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
                     id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
@@ -72,7 +54,5 @@
                 </ul>
             </div>
         </div>
-        <!-- Right elements -->
     </div>
-    <!-- Container wrapper -->
 </nav>

@@ -28,15 +28,15 @@
                         Type Rectifier
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">TTC</a></li>
+                        <li><a class="dropdown-item" href="/home?type=TTC">TTC</a></li>
                         <li>
                             <hr class="dropdown-divider m-0">
                         </li>
-                        <li><a class="dropdown-item" href="#">Inner</a></li>
+                        <li><a class="dropdown-item" href="/home?type=Inner">Inner</a></li>
                         <li>
                             <hr class="dropdown-divider m-0">
                         </li>
-                        <li><a class="dropdown-item" href="#">Outer</a></li>
+                        <li><a class="dropdown-item" href="/home?type=Outer">Outer</a></li>
                     </ul>
                 </li>
             </ul>
@@ -47,11 +47,11 @@
         <!-- Right elements -->
         <div class="d-flex align-items-center">
             <!-- Icon -->
-            <a class="text-reset me-3" href="#">
+            {{-- <a class="text-reset me-3" href="#">
                 <i class="fas fa-shopping-cart"></i>
-            </a>
+            </a> --}}
 
-            <!-- Notifications -->
+            {{-- <!-- Notifications -->
             <div class="dropdown">
                 <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink"
                     role="button" data-mdb-toggle="dropdown" aria-expanded="false">
@@ -69,7 +69,7 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                     </li>
                 </ul>
-            </div>
+            </div> --}}
             <!-- Avatar -->
             <div class="dropdown">
                 <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
@@ -95,16 +95,6 @@
                     </li>
                 </ul>
             </div>
-            {{-- <div class="logoutBtn ms-4">
-                @auth
-                    <form action="/logout" method="POST">
-                        @csrf
-                        <button type="submit" class="btn btn-lg btn-block btn-primary" style="background-color:#dd4b39;"><i
-                                class="bi bi-box-arrow-right"></i>
-                            Logout</button>
-                    </form>
-                @endauth
-            </div> --}}
         </div>
         <!-- Right elements -->
     </div>

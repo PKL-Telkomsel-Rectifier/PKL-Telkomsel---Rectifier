@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="container mb-4 text-center">
-        <h1>All Rectifiers</h1>
+        <h1>{{ $title }}</h1>
     </div>
 
     <div class="row">
@@ -12,6 +12,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
+        
         @foreach ($rectifiers as $rectifier)
             <div class="col-sm-4 mb-3 mb-sm-0">
                 <div class="card">
@@ -54,7 +55,7 @@
                 </div>
             </div>
         @endforeach
-        <div class="col-sm-4 mb-3 mb-sm-0">
+        {{-- <div class="col-sm-4 mb-3 mb-sm-0">
             <div>
                 <a href="/rectifier/{{ $rectifier->ip_recti }}" class="data-card">
                     <h2>{{ $rectifier->community }}</h2>
@@ -71,6 +72,6 @@
                     </span>
                 </a>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection

@@ -17,10 +17,10 @@
             <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/home">Home</a>
+                    <a class="nav-link {{ Request::is('home') ? 'active' : '' }}" href="/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $title === 'Form' ? 'active' : '' }}" href="/form">Form</a>
+                    <a class="nav-link {{ Request::is('form') ? 'active' : '' }}" href="/form">Form</a>
                 </li>
             </ul>
 

@@ -72,6 +72,7 @@
                                         Voltage : {{ $data->voltage }} V<br>
                                         Current : {{ $data->current }} A<br>
                                         Temperature : {{ $data->temp }} °C<br>
+                                    @endforeach
                                         <div class="d-flex justify-content-center">
                                             <div class="card p-3">
                                                 <div style="width: 600px; margin: auto;">
@@ -79,7 +80,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -90,6 +90,11 @@
                 </div>
             </div>
         @endforeach
+    </div>
+
+    <div class="d-flex justify-content-end">
+
+        {{ $rectifiers->links() }}
     </div>
 
     <script>

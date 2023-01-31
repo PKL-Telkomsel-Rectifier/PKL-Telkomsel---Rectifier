@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rectifier;
-use App\Http\Requests\StoreRectifierRequest;
 use App\Http\Requests\UpdateRectifierRequest;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class RectifierController extends Controller
 {
@@ -84,11 +84,23 @@ class RectifierController extends Controller
             'name' => $rectifier->name,
             'ip_recti' => $rectifier->ip_recti,
             'community' => $rectifier->community,
-            'voltage' => Rectifier::getVoltage($rectifier),
-            'current' => Rectifier::getCurrent($rectifier),
-            'temp' => Rectifier::getTemp($rectifier),
+            'datas' => $rectifier->dataRectifiers,
             'title' => 'Home'
         ]);
+    }
+
+    public function showAjax(Rectifier $rectifier)
+    {
+        $dataRectifiers = $rectifier->dataRectifiers;
+
+        $labels = array();
+        $data = array();
+        foreach ($dataRectifiers as $dataRectifier) {
+            array_push($labels, $dataRectifier->created_at->format('Y-m-d'));
+            array_push($data, $dataRectifier->voltage);
+        }
+
+        return response()->json(compact('labels', 'data'));
     }
 
     /**

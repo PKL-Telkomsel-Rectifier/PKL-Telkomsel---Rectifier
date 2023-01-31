@@ -4,24 +4,10 @@
     <div class="container text-center mb-5">
         <h1>Rectifier name {{ $name }} ( {{ $ip_recti }} )</h1>
     </div>
-    <div class="container">
-        <h1>Voltage : {{ $voltage }}</h1>
-        <h1>Current : {{ $current }}</h1>   
-        <h1>Temp : {{ $temp }}</h1>
-    </div>
     <div class="row">
-        <div class="d-flex col-6">
-            <div class="card mt-3 p-3">
-                <div style="width: 600px; margin: auto;">
-                    <canvas id="processorChart"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex col-6">
-            <div class="card mt-3 p-3">
-                <div style="width: 600px; margin: auto;">
-                    <canvas id="memoryChart"></canvas>
-                </div>
+        <div class="col-lg-12">
+            <div class="container" style="background-color: aliceblue">
+                <canvas id="voltageChart"></canvas>
             </div>
         </div>
     </div>
@@ -30,16 +16,16 @@
     </div>
 
     <script>
-        const prc = document.getElementById('processorChart');
+        const prc = document.getElementById('voltageChart');
         const mry = document.getElementById('memoryChart');
 
-        new Chart(prc, {
+        var voltageChart = new Chart(prc, {
             type: 'line',
             data: {
-                labels: ['17:00', '18.00', '19.00', '20.00', '21.00'],
+                labels: [],
                 datasets: [{
-                    label: 'Rectifier Processor',
-                    data: [234, 123, 214, 221, 543],
+                    label: 'Rectifier Voltage',
+                    data: [],
                     borderWidth: 1
                 }]
             },
@@ -52,23 +38,29 @@
             }
         });
 
-        new Chart(mry, {
-            type: 'line',
-            data: {
-                labels: ['17:00', '18.00', '19.00', '20.00', '21.00'],
-                datasets: [{
-                    label: 'Rectifier Memory',
-                    data: [234, 123, 214, 221, 543],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+        var updateChart = function() {
+            $.ajax({
+                url: "{{ route('api.chart', ['rectifier' => $ip_recti]) }}",
+                type: 'GET',
+                dataType: 'json',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(data) {
+                    voltageChart.data.labels = data.labels;
+                    voltageChart.data.datasets[0].data = data.data;
+                    voltageChart.update();
+                },
+                error: function(data){
+                    console.log(data);
                 }
-            }
-        });
+            });
+        }
+
+        updateChart();
+        setInterval(() => {
+            updateChart();
+        }, 2000);
+
     </script>
 @endsection

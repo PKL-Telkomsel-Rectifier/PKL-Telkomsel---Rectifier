@@ -89,8 +89,8 @@
         </div>
     </div>
 
+    {{-- PAGINATION  --}}
     <div class="d-flex justify-content-end">
-
         {{ $rectifiers->links() }}
     </div>
 
@@ -104,6 +104,7 @@
                 type: 'GET', 
                 success: function(data) {
                     // console.log(data);
+                    $('.modal-body').html('');
                     $('.modal-body').html(data);
                 },
                 error: function(data) {
@@ -126,27 +127,27 @@
             }).showToast();
         @endif
 
-        // var chartData = {
-        //     labels: ['17:00', '18.00', '19.00', '20.00', '21.00'],
-        //     datasets: [{
-        //             label: "Voltage",
-        //             data: [35.5, 45.1, 33.2, 35.3, 36.4],
-        //             borderColor: "red",
-        //             fill: false
-        //         },
-        //         {
-        //             label: "Current",
-        //             data: [54.3, 44.9, 52.7, 34.9, 35.7],
-        //             borderColor: "blue",
-        //             fill: false
-        //         },
-        //         {
-        //             label: "Temperature",
-        //             data: [33.5, 43.1, 37.2, 39.3, 40.4],
-        //             borderColor: "green",
-        //             fill: false
-        //         }
-        //     ]
-        // };
+        var chartData = {
+            labels: ['17:00', '18.00', '19.00', '20.00', '21.00'],
+            datasets: [{
+                    label: "Voltage",
+                    data: [35.5, 45.1, 33.2, 35.3, 36.4],
+                    borderColor: "red",
+                    fill: false
+                },
+                {
+                    label: "Current",
+                    data: [54.3, 44.9, 52.7, 34.9, 35.7],
+                    borderColor: "blue",
+                    fill: false
+                },
+                {
+                    label: "Temperature",
+                    data: [33.5, 43.1, 37.2, 39.3, 40.4],
+                    borderColor: "green",
+                    fill: false
+                }
+            ]
+        };
     </script>
 @endsection

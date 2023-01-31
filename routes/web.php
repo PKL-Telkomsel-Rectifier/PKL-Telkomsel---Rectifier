@@ -23,4 +23,4 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/home', [RectifierController::class, 'index'])->middleware('auth');
 Route::get('/form', [RectifierController::class, 'form'])->middleware('auth');
 Route::post('/form', [RectifierController::class, 'store'])->middleware('auth');
-Route::get('/rectifier/{rectifier:ip_recti}', [RectifierController::class, 'show'])->middleware('auth');
+Route::get('/rectifier/{rectifier:ip_recti}', [RectifierController::class, 'show'])->name('rectifiers.recti')->middleware('auth');

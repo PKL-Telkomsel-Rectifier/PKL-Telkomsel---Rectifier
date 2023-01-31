@@ -81,6 +81,7 @@ class RectifierController extends Controller
      */
     public function show(Rectifier $rectifier)
     {
+        // return $rectifier;
         return view('rectifier', [
             'name' => $rectifier->name,
             'ip_recti' => $rectifier->ip_recti,

@@ -4,6 +4,11 @@
     <div class="container text-center mb-5">
         <h1>Rectifier name {{ $name }} ( {{ $ip_recti }} )</h1>
     </div>
+    <div class="container">
+        <h1>Voltage : {{ $voltage }}</h1>
+        <h1>Current : {{ $current }}</h1>
+        <h1>Temp : {{ $temp }}</h1>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="container" style="background-color: aliceblue">

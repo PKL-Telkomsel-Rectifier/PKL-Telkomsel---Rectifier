@@ -28,7 +28,8 @@
         <div class="p-1 bg-light rounded shadow-sm mb-4">
             <form action="/home" method="GET">
                 <div class="input-group">
-                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Search..." class="form-control border-0 bg-light">
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Search..."
+                        class="form-control border-0 bg-light">
                     <div class="input-group-append">
                         <button id="searchBtn" type="submit" name="searchBtn" class="btn btn-link text-primary"><i
                                 class="fa fa-search"></i></button>
@@ -42,7 +43,7 @@
         @foreach ($rectifiers as $rectifier)
             <div class="col-sm-3 mb-3 mb-sm-0">
                 <div>
-                    <a href="/rectifier/{{ $rectifier->ip_recti }}" class="data-card">
+                    <a href="#" class="data-card" data-bs-toggle="modal" data-bs-target="#modalRecti">
                         <h3>{{ $rectifier->name }}</h3>
                         <h4>{{ $rectifier->ip_recti }}</h4>
                         <p>Type Rectifier</p>
@@ -56,6 +57,36 @@
                             </svg>
                         </span>
                     </a>
+                    <div class="modal fade" id="modalRecti" data-bs-backdrop="static" tabindex="-1"
+                        aria-labelledby="modalRecti" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="modalRecti">{{ $rectifier->name }}
+                                        ({{ $rectifier->ip_recti }}) Details</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    @foreach ($rectifier->dataRectifiers as $data)
+                                        Voltage : {{ $data->voltage }} V<br>
+                                        Current : {{ $data->current }} A<br>
+                                        Temperature : {{ $data->temp }} °C<br>
+                                        <div class="d-flex justify-content-center">
+                                            <div class="card p-3">
+                                                <div style="width: 600px; margin: auto;">
+                                                    <canvas id="processorChart"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         @endforeach
@@ -75,5 +106,42 @@
                 },
             }).showToast();
         @endif
+
+        var chartData = {
+            labels: ['17:00', '18.00', '19.00', '20.00', '21.00'],
+            datasets: [{
+                    label: "Voltage",
+                    data: [35.5, 45.1, 33.2, 35.3, 36.4],
+                    borderColor: "red",
+                    fill: false
+                },
+                {
+                    label: "Current",
+                    data: [54.3, 44.9, 52.7, 34.9, 35.7],
+                    borderColor: "blue",
+                    fill: false
+                },
+                {
+                    label: "Temperature",
+                    data: [33.5, 43.1, 37.2, 39.3, 40.4],
+                    borderColor: "green",
+                    fill: false
+                }
+            ]
+        };
+
+        const prc = document.getElementById('processorChart');
+
+        new Chart(prc, {
+            type: 'line',
+            data: chartData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
     </script>
 @endsection

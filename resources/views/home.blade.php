@@ -96,15 +96,14 @@
 
     <script>
 
-        $('#recti-list').on('click', '.detail-btn', function(){
-            var ip_recti = $(this).attr('data-id');
+        $(".detail-btn").click(function(){
+            const ip_recti = $(this).attr('data-id');
+            console.log(ip_recti);
 
             $.ajax({
                 url: "rectifier/"+ip_recti,
                 type: 'GET', 
                 success: function(data) {
-                    // console.log(data);
-                    $('.modal-body').html('');
                     $('.modal-body').html(data);
                 },
                 error: function(data) {

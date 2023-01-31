@@ -74,7 +74,7 @@
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="modalRecti">Judul Modal</h1>
+                        <h1 class="modal-title fs-5">Judul Modal</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
@@ -97,7 +97,7 @@
     <script>
 
         $('#recti-list').on('click', '.detail-btn', function(){
-            const ip_recti = $(this).attr('data-id');
+            var ip_recti = $(this).attr('data-id');
 
             $.ajax({
                 url: "rectifier/"+ip_recti,

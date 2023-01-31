@@ -16,7 +16,7 @@
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
 <script>
-    const prc = document.getElementById('voltageChart');
+    var prc = document.getElementById('voltageChart');
 
     var voltageChart = new Chart(prc, {
         type: 'line',
@@ -25,8 +25,22 @@
             datasets: [{
                 label: 'Rectifier Voltage',
                 data: [],
-                borderWidth: 1
-            }]
+                borderColor: "red",
+                fill: false
+            }, 
+            {
+                label: "Rectifier Current",
+                data: [],
+                borderColor: "blue",
+                fill: false
+            },
+            {
+                label: "Rectifier Temperature",
+                data: [],
+                borderColor: "green",
+                fill: false
+            },
+        ]
         },
         options: {
             scales: {
@@ -47,7 +61,9 @@
             },
             success: function(data) {
                 voltageChart.data.labels = data.labels;
-                voltageChart.data.datasets[0].data = data.data;
+                voltageChart.data.datasets[0].data = data.data['voltage'];
+                voltageChart.data.datasets[1].data = data.data['current'];
+                voltageChart.data.datasets[2].data = data.data['temp'];
                 voltageChart.update();
             },
             error: function(data){
@@ -59,6 +75,6 @@
     updateChart();
     setInterval(() => {
         updateChart();
-    }, 2000);
+    }, 60000);
 
 </script>

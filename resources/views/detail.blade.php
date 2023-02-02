@@ -113,8 +113,8 @@
     }); 
 
 
-    let start_date = '';
-    let end_date = '';
+    var start_date = '';
+    var end_date = '';
 
     
     var updateChart = function (start_date='', end_date='') {

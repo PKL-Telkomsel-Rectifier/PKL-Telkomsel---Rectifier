@@ -104,8 +104,8 @@ class RectifierController extends Controller
         foreach ($dataRectifiers as $dataRectifier) {
             array_push($labels, $dataRectifier->created_at->format('Y-m-d'));
             array_push($data['voltage'], $dataRectifier->voltage);
-            array_push($data['current'], $dataRectifier->current );
-            array_push($data['temp'], $dataRectifier->temp );
+            array_push($data['current'], $dataRectifier->current);
+            array_push($data['temp'], $dataRectifier->temp);
         }
 
         return response()->json(compact('labels', 'data'));

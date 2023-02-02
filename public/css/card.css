@@ -33,13 +33,20 @@
     margin: 0 0 1.777777778em;
     transition: color 0.45s ease;
 }
+.data-card h6 {
+    color: #627084;
+    font-weight: 600;
+    line-height: 1;
+    padding-bottom: 0.5em;
+    margin: 0 0 0.142857143em;
+    transition: color 0.45s ease, border 0.45s ease;
+}
 .data-card p {
     opacity: 0;
     color: #ffffff;
     font-weight: 600;
-    line-height: 1.8;
-    margin: 0 0 1.25em;
-    transform: translateY(-1em);
+    line-height: 0.5em;
+    margin-bottom: 1em;
     transition: opacity 0.45s ease, transform 0.5s ease;
 }
 .data-card .link-text {
@@ -69,9 +76,12 @@
 .data-card:hover h4 {
     color: #ffffff;
 }
+.data-card:hover h6 {
+    color: #ff0025;
+}
 .data-card:hover p {
     opacity: 1;
-    transform: none;
+    transform: translateY(-4.5em);
 }
 .data-card:hover .link-text {
     color: #ffffff;

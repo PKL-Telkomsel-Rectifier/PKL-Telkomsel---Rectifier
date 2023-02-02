@@ -136,11 +136,11 @@ class RectifierController extends Controller
             if ($request->input('start_date') && $request->input('end_date')) {
 
                 $start_date = Carbon::parse($request->input('start_date'));
-                $end_date = Carbon::parse($request->input('end_date'))->addDay();
+                $end_date = Carbon::parse($request->input('end_date'));
                 if ($end_date->greaterThan($start_date)) {
-                    $dataRectifiers = $rectifier->dataRectifiers->whereBetween('created_at', [$start_date, $end_date]);
+                    $dataRectifiers = $rectifier->dataRectifiers->whereBetween('created_at', [$start_date, $end_date->addDay()]);
                 } else {
-                    $dataRectifiers = $rectifier->dataRectifiers->where('created_at', $start_date);
+                    $dataRectifiers = $rectifier->dataRectifiers->where('created_at', [$start_date]);
                 }
             } else {
                 $dataRectifiers = $rectifier->dataRectifiers->all();

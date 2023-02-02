@@ -1,7 +1,6 @@
 <div class="modal-header">
     <h1 class="modal-title fs-5">{{ $name }}</h1>
-    <button type="button" class="btn-close" data-bs-dismiss="modal"
-        aria-label="Close"></button>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
     <div class="row justify-content-center">
@@ -53,8 +52,8 @@
             </div>
         </div>
     </div>
-    
-    
+
+
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -67,8 +66,7 @@
         type: "line",
         data: {
             labels: [],
-            datasets: [
-                {
+            datasets: [{
                     label: "Rectifier Voltage",
                     data: [],
                     borderColor: "red",
@@ -93,7 +91,8 @@
                 y: {
                     beginAtZero: true,
                 },
-            },plugins: {
+            },
+            plugins: {
                 zoom: {
                     zoom: {
                         wheel: {
@@ -103,34 +102,34 @@
                             enabled: true
                         },
                         drag: {
-                            enabled:true
+                            enabled: true
                         },
                         mode: 'xy',
                     },
                 }
             }
         },
-    }); 
+    });
 
 
     var start_date = '';
     var end_date = '';
 
-    
-    var updateChart = function (start_date='', end_date='') {
-        
+
+    var updateChart = function(start_date = '', end_date = '') {
+
         $.ajax({
             url: "{{ route('api.detail', ['rectifier' => $ip_recti]) }}",
             type: "GET",
             dataType: "json",
             data: {
-                start_date: start_date, 
+                start_date: start_date,
                 end_date: end_date
             },
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
-            success: function (data) {
+            success: function(data) {
                 // UPDATE CHART
                 detailChart.data.labels = data.labels;
                 detailChart.data.datasets[0].data = data.data["voltage"];
@@ -138,7 +137,7 @@
                 detailChart.data.datasets[2].data = data.data["temp"];
                 detailChart.update();
             },
-            error: function (data) {
+            error: function(data) {
                 console.log(data);
             },
         });
@@ -146,7 +145,7 @@
 
     updateChart(start_date, end_date)
 
-    $('#search').click(function(e){
+    $('#search').click(function(e) {
         e.preventDefault();
         start_date = $('#start_date').val()
         end_date = $('#end_date').val()

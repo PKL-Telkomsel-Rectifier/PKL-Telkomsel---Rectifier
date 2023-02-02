@@ -72,7 +72,7 @@
                                 </a>
                             </div>
                             <div class="col-6">
-                                <a href="javascript:void(0)" class="detail-btn" data-bs-toggle="modal"
+                                <a href="javascript:void(0)" class="realtime-btn" data-bs-toggle="modal"
                                     data-id="{{ $rectifier->ip_recti }}" data-bs-target="#modalRecti">
                                     <span class="link-text">
                                         Realtime
@@ -101,6 +101,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     <div class="d-flex justify-content-end">
@@ -109,20 +110,7 @@
     </div>
 
     <script>
-        $(".detail-btn").click(function() {
-            const ip_recti = $(this).attr('data-id');
-
-            $.ajax({
-                url: "rectifier/" + ip_recti,
-                type: 'GET',
-                success: function(data) {
-                    $('.modal-content').html(data);
-                },
-                error: function(data) {
-                    console.log(data);
-                }
-            })
-        })
+        // TOAST
         @if (session()->has('success'))
             Toastify({
                 text: "{{ session('success') }}",
@@ -136,5 +124,46 @@
                 },
             }).showToast();
         @endif
+
+
+        // AJAX MODAL DETAIL
+        $(".realtime-btn").click(function() {
+            const ip_recti = $(this).attr("data-id");
+
+            try {
+                $.ajax({
+                    url: "rectifier/realtime/" + ip_recti,
+                    type: "GET",
+                    success: function(data) {
+                        $(".modal-content").html(data);
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    },
+                });
+            } catch (error) {
+                console.log(error);
+            }
+        });
+
+        // AJAX MODAL DETAIL
+        $(".detail-btn").click(function() {
+            const ip_recti = $(this).attr("data-id");
+
+            try {
+                $.ajax({
+                    url: "rectifier/detail/" + ip_recti,
+                    type: "GET",
+                    success: function(data) {
+                        $(".modal-content").html(data);
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    },
+                });
+            } catch (error) {
+                console.log(error);
+            }
+        });
     </script>
 @endsection

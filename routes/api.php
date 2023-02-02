@@ -15,4 +15,5 @@ use App\Http\Controllers\RectifierController;
 |
 */
 
-Route::get('/rectifier/{rectifier:ip_recti}', [RectifierController::class, 'showAjax'])->name('api.chart');
+Route::get('/rectifier/realtime/{rectifier:ip_recti}', [RectifierController::class, 'showAjax'])->name('api.realtime');
+Route::get('/rectifier/detail/{rectifier:ip_recti}', [RectifierController::class, 'showAjaxDetail'])->name('api.detail');

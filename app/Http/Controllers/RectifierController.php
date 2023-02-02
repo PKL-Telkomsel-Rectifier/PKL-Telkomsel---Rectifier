@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rectifier;
-use App\Http\Requests\UpdateRectifierRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Http\JsonResponse;
+use App\Http\Requests\UpdateRectifierRequest;
 
 class RectifierController extends Controller
 {
@@ -79,10 +80,10 @@ class RectifierController extends Controller
      * @param  \App\Models\Rectifier  $rectifier
      * @return \Illuminate\Http\Response
      */
-    public function show(Rectifier $rectifier)
+    public function showRealtime(Rectifier $rectifier)
     {
         // return $rectifier;
-        return view('rectifier', [
+        return view('realtime', [
             'name' => $rectifier->name,
             'ip_recti' => $rectifier->ip_recti,
             'community' => $rectifier->community,
@@ -91,10 +92,20 @@ class RectifierController extends Controller
         ]);
     }
 
+    public function showDetail(Rectifier $rectifier)
+    {
+        // return $rectifier;
+        return view('detail', [
+            'name' => $rectifier->name,
+            'ip_recti' => $rectifier->ip_recti,
+            'community' => $rectifier->community,
+            'datas' => $rectifier->dataRectifiers,
+        ]);
+    }
+
     public function showAjax(Rectifier $rectifier)
     {
         $dataRectifiers = $rectifier->dataRectifiers;
-
         $labels = array();
         $data = [
             'voltage' => array(),
@@ -104,11 +115,48 @@ class RectifierController extends Controller
         foreach ($dataRectifiers as $dataRectifier) {
             array_push($labels, $dataRectifier->created_at->format('Y-m-d'));
             array_push($data['voltage'], $dataRectifier->voltage);
-            array_push($data['current'], $dataRectifier->current );
-            array_push($data['temp'], $dataRectifier->temp );
+            array_push($data['current'], $dataRectifier->current);
+            array_push($data['temp'], $dataRectifier->temp);
         }
 
-        return response()->json(compact('labels', 'data'));
+        return response()->json(compact('labels', 'data', 'rectifier'));
+    }
+
+    public function showAjaxDetail(Rectifier $rectifier, Request $request)
+    {
+        $labels = array();
+        $data = [
+            'voltage' => array(),
+            'current' => array(),
+            'temp' => array()
+        ];
+
+        if ($request->ajax()) {
+
+            if ($request->input('start_date') && $request->input('end_date')) {
+
+                $start_date = Carbon::parse($request->input('start_date'));
+                $end_date = Carbon::parse($request->input('end_date'))->addDay();
+                if ($end_date->greaterThan($start_date)) {
+                    $dataRectifiers = $rectifier->dataRectifiers->whereBetween('created_at', [$start_date, $end_date]);
+                } else {
+                    $dataRectifiers = $rectifier->dataRectifiers->where('created_at', $start_date);
+                }
+            } else {
+                $dataRectifiers = $rectifier->dataRectifiers->all();
+            }
+
+            foreach ($dataRectifiers as $dataRectifier) {
+                array_push($labels, $dataRectifier->created_at->format('Y-m-d'));
+                array_push($data['voltage'], $dataRectifier->voltage);
+                array_push($data['current'], $dataRectifier->current);
+                array_push($data['temp'], $dataRectifier->temp);
+            }
+
+            return response()->json(compact('labels', 'data', 'rectifier'));
+        } else {
+            dd($labels, $data);
+        }
     }
 
     /**

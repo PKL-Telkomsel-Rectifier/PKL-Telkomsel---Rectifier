@@ -28,6 +28,8 @@
 
                 <div>
                     <form action="#" method="GET" class="me-3 mt-3">
+                        @csrf
+
                         <div class="mb-2">
                             <strong>Filter Data</strong>
                         </div>

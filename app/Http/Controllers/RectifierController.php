@@ -30,13 +30,6 @@ class RectifierController extends Controller
         ]);
     }
 
-    public function form()
-    {
-        return view('form', [
-            'title' => 'Form'
-        ]);
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -44,7 +37,9 @@ class RectifierController extends Controller
      */
     public function create()
     {
-        //
+        return view('form', [
+            'title' => 'Form'
+        ]);
     }
 
     /**
@@ -167,7 +162,10 @@ class RectifierController extends Controller
      */
     public function edit(Rectifier $rectifier)
     {
-        //
+        return view('edit', [
+            'rectifier' => $rectifier,
+            'title' => 'Edit Rectifier'
+        ]);
     }
 
     /**
@@ -177,9 +175,44 @@ class RectifierController extends Controller
      * @param  \App\Models\Rectifier  $rectifier
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRectifierRequest $request, Rectifier $rectifier)
+    public function update(Request $request, Rectifier $rectifier)
     {
-        //
+        $rules = [
+            // 'name' => ['required', 'unique:rectifiers,name'],
+            'site_name' => ['required'],
+            'rtpo' => ['required'],
+            'nsa' => ['required'],
+            'type' => ['required'],
+            'port' => ['required'],
+            // 'ip_recti' => ['required', 'unique:rectifiers,ip_recti', 'ip'],
+            'community' => ['required'],
+            'version' => ['required'],
+            'oid_voltage' => ['required',],
+            'oid_current' => ['required',],
+            'oid_temp' => ['required',],
+        ];
+
+        if ($request->name != $rectifier->name) {
+            $rules['name'] = ['required', 'unique:rectifiers,name'];
+        }
+
+        if ($request->ip_recti != $rectifier->ip_recti) {
+            $rules['ip_recti'] = ['required', 'unique:rectifiers,ip_recti', 'ip'];
+        }
+
+        $validatedData = $request->validate($rules);
+
+        Rectifier::where('id', $rectifier->id)
+            ->update($validatedData);
+        return redirect('/home')->with('success', 'Rectifier berhasil di-update.');
+    }
+
+    public function delete(Rectifier $rectifier)
+    {
+        return view('delete', [
+            'title' => 'Delete Rectifier',
+            'rectifier' => $rectifier,
+        ]);
     }
 
     /**
@@ -190,6 +223,7 @@ class RectifierController extends Controller
      */
     public function destroy(Rectifier $rectifier)
     {
-        //
+        Rectifier::destroy($rectifier->id);
+        return redirect('/home')->with('success', 'Rectifier berhasil dihapus.');
     }
 }

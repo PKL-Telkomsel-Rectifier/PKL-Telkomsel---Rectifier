@@ -21,7 +21,15 @@ Route::post('/', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/home', [RectifierController::class, 'index'])->middleware('auth');
-Route::get('/form', [RectifierController::class, 'form'])->middleware('auth');
+
+Route::get('/edit/{rectifier:ip_recti}', [RectifierController::class, 'edit'])->middleware('auth');
+Route::post('/edit/{rectifier:ip_recti}', [RectifierController::class, 'update'])->middleware('auth');
+
+Route::get('/delete/{rectifier:ip_recti}', [RectifierController::class, 'delete'])->middleware('auth');
+Route::post('/delete/{rectifier:ip_recti}', [RectifierController::class, 'destroy'])->middleware('auth');
+
+Route::get('/form', [RectifierController::class, 'create'])->middleware('auth');
 Route::post('/form', [RectifierController::class, 'store'])->middleware('auth');
+
 Route::get('/rectifier/realtime/{rectifier:ip_recti}', [RectifierController::class, 'showRealtime'])->middleware('auth');
 Route::get('/rectifier/detail/{rectifier:ip_recti}', [RectifierController::class, 'showDetail'])->middleware('auth');

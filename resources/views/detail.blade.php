@@ -47,7 +47,8 @@
             </div>
         </div>
         <div class="col-lg-8">
-            <div class="chart-container" style="width:100%">
+            <div class="chartBox"
+                style="padding: 20px;border-radius: 20px;border: solid 3px rgba(54, 162, 235, 1);background: white;">
                 <canvas id="detailChart"></canvas>
             </div>
         </div>

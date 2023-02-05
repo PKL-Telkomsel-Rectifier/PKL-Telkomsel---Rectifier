@@ -1,24 +1,20 @@
 <div class="modal-header">
     <h1 class="modal-title fs-5">Realtime chart: {{ $name }}</h1>
-    <button type="button" class="btn-close" data-bs-dismiss="modal"
-        aria-label="Close"></button>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
     <div class="row justify-content-center">
         <div class="col-lg-10">
-            <div class="chart-container" style="width:100%">
+            <div class="chartBox"
+                style="padding: 20px;border-radius: 20px;border: solid 3px rgba(54, 162, 235, 1);background: white;">
                 <canvas id="realtimeChart"></canvas>
             </div>
         </div>
     </div>
-    
-    
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
 </div>
-
-
 
 <script>
     var prc = document.getElementById("realtimeChart");
@@ -26,8 +22,7 @@
         type: "line",
         data: {
             labels: [],
-            datasets: [
-                {
+            datasets: [{
                     label: "Rectifier Voltage",
                     data: [],
                     borderColor: "red",
@@ -52,7 +47,8 @@
                 y: {
                     beginAtZero: true,
                 },
-            },plugins: {
+            },
+            plugins: {
                 zoom: {
                     zoom: {
                         wheel: {
@@ -62,7 +58,7 @@
                             enabled: true
                         },
                         drag: {
-                            enabled:true
+                            enabled: true
                         },
                         mode: 'xy',
                     },
@@ -71,8 +67,8 @@
         },
     });
 
-    var updateChart = function () {
-        
+    var updateChart = function() {
+
         $.ajax({
             url: "{{ route('api.realtime', ['rectifier' => $ip_recti]) }}",
             type: "GET",
@@ -80,7 +76,7 @@
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
-            success: function (data) {
+            success: function(data) {
                 // UPDATE CHART
                 realtimeChart.data.labels = data.labels;
                 realtimeChart.data.datasets[0].data = data.data["voltage"];
@@ -88,7 +84,7 @@
                 realtimeChart.data.datasets[2].data = data.data["temp"];
                 realtimeChart.update();
             },
-            error: function (data) {
+            error: function(data) {
                 console.log(data);
             },
         });
@@ -97,7 +93,7 @@
     updateChart();
 
     if ($(""))
-    setInterval(() => {
-        updateChart();
-    }, 60000);
+        setInterval(() => {
+            updateChart();
+        }, 60000);
 </script>

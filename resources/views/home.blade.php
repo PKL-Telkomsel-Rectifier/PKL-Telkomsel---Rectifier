@@ -48,15 +48,32 @@
                 @foreach ($rectifiers as $rectifier)
                     <div id="recti-list" class="col-sm-3 mb-3 mb-sm-0">
                         <div class="data-card">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <a href="edit/{{ $rectifier->ip_recti }}" id="edit-recti"><i class="bi bi-pencil-square fa-2x"></i></a>
-                                </div>
-                                <div class="col-md-6">
-                                    <a href="delete/{{ $rectifier->ip_recti }}" id="delete-recti" ><i class="bi bi-trash fa-2x"></i></a>
-                                </div>
+                            <div class="d-flex flex-row justify-content-end">
+                                <a href="javascript:void(0)" class="edit-recti me-3" data-bs-toggle="modal"
+                                    data-id="{{ $rectifier->ip_recti }}" data-bs-target="#modalRecti">
+                                    <span class="link-text">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                            fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                            <path
+                                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                            <path fill-rule="evenodd"
+                                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                        </svg>
+                                    </span>
+                                </a>
+                                <a href="javascript:void(0)" class="delete-recti" data-bs-toggle="modal"
+                                    data-id="{{ $rectifier->ip_recti }}" data-bs-target="#modalRecti">
+                                    <span class="link-text">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                            fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                            <path fill-rule="evenodd"
+                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                        </svg>
+                                    </span>
+                                </a>
                             </div>
-                        
                             <h3>{{ $rectifier->name }}</h3>
                             <h4>{{ $rectifier->ip_recti }}</h4>
                             <h6>Voltage : {{ $rectifier->dataRectifiers->last()->voltage }}</h6>
@@ -102,18 +119,18 @@
             @else
                 <h3 class="text-center fs-3">No Rectifier found.</h3>
             @endif
-    
+
             {{-- MODALS  --}}
-            <div class="modal fade" id="modalRecti" data-bs-backdrop="static" tabindex="-1" aria-labelledby="modalRecti"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal fade" id="modalRecti" data-bs-backdrop="static" tabindex="-1"
+                aria-labelledby="modalRecti" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
                     <div class="modal-content" style="background-image: url('/img/memphis-bg.jpg')">
                     </div>
                 </div>
             </div>
-    
+
         </div>
-    
+
         <div class="d-flex justify-content-end">
             {{ $rectifiers->links() }}
         </div>
@@ -176,13 +193,33 @@
             }
         });
 
-        // AJAX MODAL update
-        $("#edit-recti").click(function() {
+        // Edit Modal
+        $(".edit-recti").click(function() {
             const ip_recti = $(this).attr("data-id");
-            
+
             try {
                 $.ajax({
                     url: "edit/" + ip_recti,
+                    type: "GET",
+                    success: function(data) {
+                        $(".modal-content").html(data);
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    },
+                });
+            } catch (error) {
+                console.log(error);
+            }
+        });
+
+        // Delete Modal
+        $(".delete-recti").click(function() {
+            const ip_recti = $(this).attr("data-id");
+
+            try {
+                $.ajax({
+                    url: "delete/" + ip_recti,
                     type: "GET",
                     success: function(data) {
                         $(".modal-content").html(data);

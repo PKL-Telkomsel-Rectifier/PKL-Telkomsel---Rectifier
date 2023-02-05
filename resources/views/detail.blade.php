@@ -29,7 +29,6 @@
                 <div>
                     <form action="#" method="GET" class="me-3 mt-3">
                         @csrf
-
                         <div class="mb-2">
                             <strong>Filter Data</strong>
                         </div>
@@ -55,8 +54,6 @@
             </div>
         </div>
     </div>
-
-
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>

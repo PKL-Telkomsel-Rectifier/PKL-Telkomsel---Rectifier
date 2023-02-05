@@ -4,7 +4,7 @@
     <div class="container my-2 d-flex align-items-center justify-content-center">
         <div class="card py-4 w-100" style="background-image:url('/img/memphis-bg.jpg')">
             <div class="container text-center mb-3">
-                <h1>Form Rectifier</h1>
+                <h1>Form Add Rectifier</h1>
             </div>
 
             {{-- FORM ADD RECTIFIER  --}}

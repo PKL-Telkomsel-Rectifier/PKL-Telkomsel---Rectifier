@@ -29,7 +29,6 @@
                 <div>
                     <form action="#" method="GET" class="me-3 mt-3">
                         @csrf
-
                         <div class="mb-2">
                             <strong>Filter Data</strong>
                         </div>
@@ -49,13 +48,12 @@
             </div>
         </div>
         <div class="col-lg-8">
-            <div class="chart-container" style="width:100%">
+            <div class="chartBox"
+                style="padding: 20px;border-radius: 20px;border: solid 3px rgba(54, 162, 235, 1);background: white;">
                 <canvas id="detailChart"></canvas>
             </div>
         </div>
     </div>
-
-
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>

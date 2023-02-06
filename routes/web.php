@@ -33,3 +33,5 @@ Route::post('/form', [RectifierController::class, 'store'])->middleware('auth');
 
 Route::get('/rectifier/realtime/{rectifier:ip_recti}', [RectifierController::class, 'showRealtime'])->middleware('auth');
 Route::get('/rectifier/detail/{rectifier:ip_recti}', [RectifierController::class, 'showDetail'])->middleware('auth');
+
+Route::get('/analysis', [RectifierController::class, 'showAnalysis'])->middleware('auth');

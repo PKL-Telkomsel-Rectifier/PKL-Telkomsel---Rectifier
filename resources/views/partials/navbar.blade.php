@@ -22,6 +22,23 @@
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('form') ? 'active' : '' }}" href="/form">Form</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" {{ Request::is('analysis') ? 'active' : '' }} href="#"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Analysis
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/analysis">TTC</a></li>
+                        <li>
+                            <hr class="dropdown-divider m-0">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Inner</a></li>
+                        <li>
+                            <hr class="dropdown-divider m-0">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Outer</a></li>
+                    </ul>
+                </li>
             </ul>
 
         </div>

@@ -204,7 +204,7 @@ class RectifierController extends Controller
 
         Rectifier::where('id', $rectifier->id)
             ->update($validatedData);
-        return redirect('/home')->with('success', 'Rectifier berhasil di-update.');
+        return redirect('/home')->with('edit-success', 'Rectifier berhasil di-update.');
     }
 
     public function delete(Rectifier $rectifier)
@@ -225,5 +225,16 @@ class RectifierController extends Controller
     {
         Rectifier::destroy($rectifier->id);
         return redirect('/home')->with('success', 'Rectifier berhasil dihapus.');
+    }
+
+    public function showAnalysis(Rectifier $rectifier)
+    {
+        return view('analysis', [
+            'name' => $rectifier->name,
+            'ip_recti' => $rectifier->ip_recti,
+            'community' => $rectifier->community,
+            'datas' => $rectifier->dataRectifiers,
+            'title' => 'Analysis'
+        ]);
     }
 }

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataRectifier;
 use App\Models\Rectifier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Illuminate\Http\JsonResponse;
-use App\Http\Requests\UpdateRectifierRequest;
+use PhpParser\Node\Stmt\Foreach_;
 
 class RectifierController extends Controller
 {
@@ -128,18 +128,8 @@ class RectifierController extends Controller
 
         if ($request->ajax()) {
 
-            if ($request->input('start_date') && $request->input('end_date')) {
-
-                $start_date = Carbon::parse($request->input('start_date'));
-                $end_date = Carbon::parse($request->input('end_date'));
-                if ($end_date->greaterThan($start_date)) {
-                    $dataRectifiers = $rectifier->dataRectifiers->whereBetween('created_at', [$start_date, $end_date->addDay()]);
-                } else {
-                    $dataRectifiers = $rectifier->dataRectifiers->where('created_at', '>=', $start_date)->where('created_at', '<=', $start_date->addDay());
-                }
-            } else {
-                $dataRectifiers = $rectifier->dataRectifiers->all();
-            }
+            $dataRectifiers = DataRectifier::where('rectifier_id', $rectifier->id)->filter(request(['start_date', 'end_date']))
+                ->get();
 
             foreach ($dataRectifiers as $dataRectifier) {
                 array_push($labels, $dataRectifier->created_at->format('Y-m-d'));
@@ -152,6 +142,104 @@ class RectifierController extends Controller
         } else {
             dd($labels, $data);
         }
+    }
+
+    public function showAnalysis(Rectifier $rectifier)
+    {
+        return view('analysis', [
+            'name' => $rectifier->name,
+            'ip_recti' => $rectifier->ip_recti,
+            'community' => $rectifier->community,
+            'datas' => $rectifier->dataRectifiers,
+            'title' => 'Home'
+        ]);
+    }
+
+    public function ajaxAnalysisVoltage(Request $request)
+    {
+        $all_recti = Rectifier::filter(request(['search', 'type']))->get();
+        $all_data = DataRectifier::filter(request(['start_date', 'end_date']))->get();
+        $labels = $all_data->pluck('created_at')->map(function ($date) {
+            return $date->format('Y-m-d');
+        });
+        $times = $all_data->pluck('created_at');
+        $datasets = [];
+        foreach ($all_recti as $recti) {
+            $voltage_data = [];
+            foreach ($times as $time) {
+                if ($all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()) {
+                    array_push($voltage_data, $all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()->voltage);
+                } else {
+                    array_push($voltage_data, null);
+                }
+            }
+            array_push($datasets, [
+                'label' => $recti->name,
+                // 'data' => $all_data->where('rectifier_id', $recti->id)->pluck('voltage'),
+                'data' => $voltage_data,
+                'borderColor' => 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)',
+                'fill' => false,
+            ]);
+        }
+        return response()->json(compact('labels', 'datasets'));
+    }
+
+    public function ajaxAnalysisCurrent(Request $request)
+    {
+        $all_recti = Rectifier::filter(request(['search', 'type']))->get();
+        $all_data = DataRectifier::filter(request(['start_date', 'end_date']))->get();
+        $labels = $all_data->pluck('created_at')->map(function ($date) {
+            return $date->format('Y-m-d');
+        });
+        $times = $all_data->pluck('created_at');
+        $datasets = [];
+        foreach ($all_recti as $recti) {
+            $current_data = [];
+            foreach ($times as $time) {
+                if ($all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()) {
+                    array_push($current_data, $all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()->current);
+                } else {
+                    array_push($current_data, null);
+                }
+            }
+            array_push($datasets, [
+                'label' => $recti->name,
+                // 'data' => $all_data->where('rectifier_id', $recti->id)->pluck('current'),
+                'data' => $current_data,
+                'borderColor' => 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)',
+                'fill' => false,
+            ]);
+        }
+        return response()->json(compact('labels', 'datasets'));
+    }
+
+    public function ajaxAnalysisTemp(Request $request)
+    {
+        $all_recti = Rectifier::filter(request(['search', 'type']))->get();
+        $all_data = DataRectifier::filter(request(['start_date', 'end_date']))->get();
+        $labels = $all_data->pluck('created_at')->map(function ($date) {
+            return $date->format('Y-m-d');
+        });
+        $times = $all_data->pluck('created_at');
+        $datasets = [];
+        foreach ($all_recti as $recti) {
+            $temp_data = [];
+            foreach ($times as $time) {
+                if ($all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()) {
+                    array_push($temp_data, $all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()->temp);
+                } else {
+                    array_push($temp_data, null);
+                }
+            }
+            array_push($datasets, [
+                'label' => $recti->name,
+                // 'data' => $all_data->where('rectifier_id', $recti->id)->pluck('temp'),
+                'data' => $temp_data,
+                'borderColor' => 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)',
+                'fill' => false,
+            ]);
+        }
+        return response()->json(compact('labels', 'datasets'));
     }
 
     /**
@@ -225,16 +313,5 @@ class RectifierController extends Controller
     {
         Rectifier::destroy($rectifier->id);
         return redirect('/home')->with('success', 'Rectifier berhasil dihapus.');
-    }
-
-    public function showAnalysis(Rectifier $rectifier)
-    {
-        return view('analysis', [
-            'name' => $rectifier->name,
-            'ip_recti' => $rectifier->ip_recti,
-            'community' => $rectifier->community,
-            'datas' => $rectifier->dataRectifiers,
-            'title' => 'Analysis'
-        ]);
     }
 }

@@ -76,9 +76,9 @@
                             </div>
                             <h3>{{ $rectifier->name }}</h3>
                             <h4>{{ $rectifier->ip_recti }}</h4>
-                            <h6>Voltage : {{ $rectifier->getVoltage($rectifier) }}</h6>
-                            <h6>Current : {{ $rectifier->getCurrent($rectifier) }}</h6>
-                            <h6>Temperature : {{ $rectifier->getTemp($rectifier) }}</h6>
+                            <h6>Voltage : {{ $rectifier->dataRectifiers->last()->voltage }}</h6>
+                            <h6>Current : {{ $rectifier->dataRectifiers->last()->current }}</h6>
+                            <h6>Temperature : {{ $rectifier->dataRectifiers->last()->temp }}</h6>
                             <p>Site : {{ $rectifier->site_name }}</p>
                             <p>RTPO : {{ $rectifier->rtpo }}</p>
                             <p>NSA : {{ $rectifier->nsa }}</p>

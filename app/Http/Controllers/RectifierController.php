@@ -188,6 +188,7 @@ class RectifierController extends Controller
             //     }
             // }
 
+            $randomColor = 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)';
             array_push($datasets, [
                 'label' => $recti->name,
                 // 'data' => $all_data->where('rectifier_id', $recti->id)->pluck('voltage'),
@@ -205,19 +206,32 @@ class RectifierController extends Controller
         $all_recti = Rectifier::filter(request(['type']))->get();
         $all_data = DataRectifier::filter(request(['start_date', 'end_date']))->get();
         $labels = $all_data->pluck('created_at')->map(function ($date) {
-            return $date->format('Y-m-d');
+            return $date->format('Y-m-d H:i');
         });
-        $times = $all_data->pluck('created_at');
+
         $datasets = [];
         foreach ($all_recti as $recti) {
-            $current_data = [];
-            foreach ($times as $time) {
-                if ($all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()) {
-                    array_push($current_data, $all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()->current);
+            $current_data = new Collection();
+            foreach ($labels as $time) {
+                $filter_data = $all_data->filter(function ($value) use ($time, $recti) {
+                    return (substr($value['created_at'], 0, 16) === $time) && $value['rectifier_id'] === $recti->id;
+                });
+
+                $current = $filter_data->pluck('current')->first();
+                if ($current) {
+                    $current_data->push($current);
                 } else {
-                    array_push($current_data, null);
+                    $current_data->push(null);
                 }
             }
+            // $current_data = [];
+            // foreach ($times as $time) {
+            //     if ($all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()) {
+            //         array_push($current_data, $all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()->current);
+            //     } else {
+            //         array_push($current_data, null);
+            //     }
+            // }
             $randomColor = 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)';
             array_push($datasets, [
                 'label' => $recti->name,
@@ -236,19 +250,32 @@ class RectifierController extends Controller
         $all_recti = Rectifier::filter(request(['type']))->get();
         $all_data = DataRectifier::filter(request(['start_date', 'end_date']))->get();
         $labels = $all_data->pluck('created_at')->map(function ($date) {
-            return $date->format('Y-m-d');
+            return $date->format('Y-m-d H:i');
         });
-        $times = $all_data->pluck('created_at');
+
         $datasets = [];
         foreach ($all_recti as $recti) {
-            $temp_data = [];
-            foreach ($times as $time) {
-                if ($all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()) {
-                    array_push($temp_data, $all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()->temp);
+            $temp_data = new Collection();
+            foreach ($labels as $time) {
+                $filter_data = $all_data->filter(function ($value) use ($time, $recti) {
+                    return (substr($value['created_at'], 0, 16) === $time) && $value['rectifier_id'] === $recti->id;
+                });
+
+                $temp = $filter_data->pluck('temp')->first();
+                if ($temp) {
+                    $temp_data->push($temp);
                 } else {
-                    array_push($temp_data, null);
+                    $temp_data->push(null);
                 }
             }
+            // $temp_data = [];
+            // foreach ($times as $time) {
+            //     if ($all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()) {
+            //         array_push($temp_data, $all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()->temp);
+            //     } else {
+            //         array_push($temp_data, null);
+            //     }
+            // }
             $randomColor = 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)';
             array_push($datasets, [
                 'label' => $recti->name,

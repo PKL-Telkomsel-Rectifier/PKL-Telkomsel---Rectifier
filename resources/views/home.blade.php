@@ -48,7 +48,7 @@
                 @foreach ($rectifiers as $rectifier)
                     <div id="recti-list" class="col-sm-3 mb-3 mb-sm-0">
                         <div class="data-card">
-                            <div class="d-flex flex-row justify-content-end">
+                            <div class="d-flex flex-row justify-content-end mb-2">
                                 <a href="javascript:void(0)" class="edit-recti me-3" data-bs-toggle="modal"
                                     data-id="{{ $rectifier->ip_recti }}" data-bs-target="#modalRecti">
                                     <span class="link-text">

@@ -5,24 +5,46 @@
         <h1 class="mt-3">TTC Analysis Chart</h1>
     </div>
 
-    <form action="#" method="GET">
-        @csrf
-        <div class="form-group mb-3">
-            <div class="card flex-row p-3 w-75">
-                <div class="col-4 pe-2">
-                    <label for="start_date" class="w-100 text-center">Start Date</label>
-                    <input type="date" class="form-control mt-1" name="start_date" id="start_date">
-                </div>
-                <div class="col-4 pe-2">
-                    <label for="end_date" class="w-100 text-center">End Date</label>
-                    <input type="date" class="form-control mt-1" name="end_date" id="end_date">
-                </div>
-                <div class="col-4 align-self-end">
-                    <button id="search" type="submit" class="btn btn-primary mt-3 w-100">Search</button>
+    <div class="d-flex flex-row">
+        <form action="#" method="GET">
+            @csrf
+            <div class="form-group mb-3">
+                <div class="card flex-row p-3">
+                    <div class="col-4 pe-2">
+                        <label for="start_date" class="w-100 text-center">Start Date</label>
+                        <input type="date" class="form-control mt-1" name="start_date" id="start_date">
+                    </div>
+                    <div class="col-4 pe-2">
+                        <label for="end_date" class="w-100 text-center">End Date</label>
+                        <input type="date" class="form-control mt-1" name="end_date" id="end_date">
+                    </div>
+                    <div class="col-4 align-self-end">
+                        <button id="search" type="submit" class="btn btn-primary mt-3 w-100">Search</button>
+                    </div>
                 </div>
             </div>
+        </form>
+
+        <div class="dropdown ms-auto">
+            <div class="bg-light rounded shadow-sm mb-4" style="padding: 12px">
+                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    style="color:black">
+                    Type Rectifier
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="javascript:void(0)">TTC</a></li>
+                    <li>
+                        <hr class="dropdown-divider m-0">
+                    </li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Inner</a></li>
+                    <li>
+                        <hr class="dropdown-divider m-0">
+                    </li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Outer</a></li>
+                </ul>
+            </div>
         </div>
-    </form>
+    </div>
 
     <h1>Voltage</h1>
     <div class="chartBox mb-4"

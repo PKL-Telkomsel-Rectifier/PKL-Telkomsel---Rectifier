@@ -62,6 +62,21 @@
 
 <script>
     var dChart = document.getElementById("detailChart");
+    var randomColors = [];
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    for (var i = 0; i < 3; i++) {
+        randomColors.push(getRandomColor());
+    }
+
     var detailChart = new Chart(dChart, {
         type: "line",
         data: {
@@ -69,19 +84,22 @@
             datasets: [{
                     label: "Rectifier Voltage",
                     data: [],
-                    borderColor: "red",
+                    borderColor: randomColors[0],
+                    backgroundColor: randomColors[0],
                     fill: false,
                 },
                 {
                     label: "Rectifier Current",
                     data: [],
-                    borderColor: "blue",
+                    borderColor: randomColors[1],
+                    backgroundColor: randomColors[1],
                     fill: false,
                 },
                 {
                     label: "Rectifier Temperature",
                     data: [],
-                    borderColor: "green",
+                    borderColor: randomColors[2],
+                    backgroundColor: randomColors[2],
                     fill: false,
                 },
             ],

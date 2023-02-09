@@ -173,11 +173,13 @@ class RectifierController extends Controller
                     array_push($voltage_data, null);
                 }
             }
+            $randomColor = 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)';
             array_push($datasets, [
                 'label' => $recti->name,
                 // 'data' => $all_data->where('rectifier_id', $recti->id)->pluck('voltage'),
                 'data' => $voltage_data,
-                'borderColor' => 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)',
+                'borderColor' => $randomColor,
+                'backgroundColor' => $randomColor,
                 'fill' => false,
             ]);
         }
@@ -202,11 +204,13 @@ class RectifierController extends Controller
                     array_push($current_data, null);
                 }
             }
+            $randomColor = 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)';
             array_push($datasets, [
                 'label' => $recti->name,
                 // 'data' => $all_data->where('rectifier_id', $recti->id)->pluck('current'),
                 'data' => $current_data,
-                'borderColor' => 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)',
+                'borderColor' => $randomColor,
+                'backgroundColor' => $randomColor,
                 'fill' => false,
             ]);
         }
@@ -231,16 +235,19 @@ class RectifierController extends Controller
                     array_push($temp_data, null);
                 }
             }
+            $randomColor = 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)';
             array_push($datasets, [
                 'label' => $recti->name,
                 // 'data' => $all_data->where('rectifier_id', $recti->id)->pluck('temp'),
                 'data' => $temp_data,
-                'borderColor' => 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)',
+                'backgroundColor' => $randomColor,
+                'borderColor' => $randomColor,
                 'fill' => false,
             ]);
         }
         return response()->json(compact('labels', 'datasets'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

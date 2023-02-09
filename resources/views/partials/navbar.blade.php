@@ -28,15 +28,15 @@
                         Analysis
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/analysis">TTC</a></li>
+                        <li><a class="dropdown-item" href="/analysis?type=TTC">TTC</a></li>
                         <li>
                             <hr class="dropdown-divider m-0">
                         </li>
-                        <li><a class="dropdown-item" href="#">Inner</a></li>
+                        <li><a class="dropdown-item" href="/analysis?type=Inner">Inner</a></li>
                         <li>
                             <hr class="dropdown-divider m-0">
                         </li>
-                        <li><a class="dropdown-item" href="#">Outer</a></li>
+                        <li><a class="dropdown-item" href="/analysis?type=Outer">Outer</a></li>
                     </ul>
                 </li>
             </ul>

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DataRectifier;
 use App\Models\Rectifier;
 use Illuminate\Http\Request;
+use App\Models\DataRectifier;
 use Illuminate\Support\Carbon;
 use PhpParser\Node\Stmt\Foreach_;
+use Illuminate\Support\Collection;
 
 class RectifierController extends Controller
 {
@@ -157,22 +158,36 @@ class RectifierController extends Controller
 
     public function ajaxAnalysisVoltage(Request $request)
     {
-        $all_recti = Rectifier::filter(request(['search', 'type']))->get();
+        $all_recti = Rectifier::filter(request(['type']))->get();
         $all_data = DataRectifier::filter(request(['start_date', 'end_date']))->get();
         $labels = $all_data->pluck('created_at')->map(function ($date) {
-            return $date->format('Y-m-d');
+            return $date->format('Y-m-d H:i');
         });
-        $times = $all_data->pluck('created_at');
+
         $datasets = [];
         foreach ($all_recti as $recti) {
-            $voltage_data = [];
-            foreach ($times as $time) {
-                if ($all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()) {
-                    array_push($voltage_data, $all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()->voltage);
+            $voltage_data = new Collection();
+            foreach ($labels as $time) {
+                $filter_data = $all_data->filter(function ($value) use ($time, $recti) {
+                    return (substr($value['created_at'], 0, 16) === $time) && $value['rectifier_id'] === $recti->id;
+                });
+
+                $voltage = $filter_data->pluck('voltage')->first();
+                if ($voltage) {
+                    $voltage_data->push($voltage);
                 } else {
-                    array_push($voltage_data, null);
+                    $voltage_data->push(null);
                 }
             }
+
+            // foreach ($times as $time) {
+            //     if ($all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()) {
+            //         array_push($voltage_data, $all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()->voltage);
+            //     } else {
+            //         array_push($voltage_data, null);
+            //     }
+            // }
+
             array_push($datasets, [
                 'label' => $recti->name,
                 // 'data' => $all_data->where('rectifier_id', $recti->id)->pluck('voltage'),
@@ -186,7 +201,7 @@ class RectifierController extends Controller
 
     public function ajaxAnalysisCurrent(Request $request)
     {
-        $all_recti = Rectifier::filter(request(['search', 'type']))->get();
+        $all_recti = Rectifier::filter(request(['type']))->get();
         $all_data = DataRectifier::filter(request(['start_date', 'end_date']))->get();
         $labels = $all_data->pluck('created_at')->map(function ($date) {
             return $date->format('Y-m-d');
@@ -215,7 +230,7 @@ class RectifierController extends Controller
 
     public function ajaxAnalysisTemp(Request $request)
     {
-        $all_recti = Rectifier::filter(request(['search', 'type']))->get();
+        $all_recti = Rectifier::filter(request(['type']))->get();
         $all_data = DataRectifier::filter(request(['start_date', 'end_date']))->get();
         $labels = $all_data->pluck('created_at')->map(function ($date) {
             return $date->format('Y-m-d');

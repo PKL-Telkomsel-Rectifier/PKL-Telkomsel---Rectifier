@@ -101,48 +101,83 @@ class RectifierController extends Controller
 
     public function showAjax(Rectifier $rectifier)
     {
-        $dataRectifiers = $rectifier->dataRectifiers;
-        $labels = array();
-        $data = [
-            'voltage' => array(),
-            'current' => array(),
-            'temp' => array()
-        ];
-        foreach ($dataRectifiers as $dataRectifier) {
-            array_push($labels, $dataRectifier->created_at->format('Y-m-d'));
-            array_push($data['voltage'], $dataRectifier->voltage);
-            array_push($data['current'], $dataRectifier->current);
-            array_push($data['temp'], $dataRectifier->temp);
-        }
+        $dataRectifiers = DataRectifier::select('created_at', 'voltage', 'current', 'temp')
+            ->where('rectifier_id', $rectifier->id)
+            ->where('created_at', '>=', Carbon::today()->subDays(3))
+            ->get();
 
-        return response()->json(compact('labels', 'data', 'rectifier'));
+        $labels = $dataRectifiers->pluck('created_at')->map(function ($time) {
+            return $time->format('Y-m-d H:i');
+        })->toArray();
+
+        $data = [];
+        $data['voltage'] = $dataRectifiers->pluck('voltage')->toArray();
+        $data['current'] = $dataRectifiers->pluck('current')->toArray();
+        $data['temp'] = $dataRectifiers->pluck('temp')->toArray();
+
+        return response()->json(compact('labels', 'data'));
     }
+    // public function showAjax(Rectifier $rectifier)
+    // {
+    //     $dataRectifiers = $rectifier->dataRectifiers;
+    //     $labels = array();
+    //     $data = [
+    //         'voltage' => array(),
+    //         'current' => array(),
+    //         'temp' => array()
+    //     ];
+    //     foreach ($dataRectifiers as $dataRectifier) {
+    //         array_push($labels, $dataRectifier->created_at->format('Y-m-d'));
+    //         array_push($data['voltage'], $dataRectifier->voltage);
+    //         array_push($data['current'], $dataRectifier->current);
+    //         array_push($data['temp'], $dataRectifier->temp);
+    //     }
+
+    //     return response()->json(compact('labels', 'data', 'rectifier'));
+    // }
+
+    // public function showAjaxDetail(Rectifier $rectifier, Request $request)
+    // {
+    //     $labels = array();
+    //     $data = [
+    //         'voltage' => array(),
+    //         'current' => array(),
+    //         'temp' => array()
+    //     ];
+
+    //     if ($request->ajax()) {
+
+    //         $dataRectifiers = DataRectifier::where('rectifier_id', $rectifier->id)->filter(request(['start_date', 'end_date']))
+    //             ->get();
+
+    //         foreach ($dataRectifiers as $dataRectifier) {
+    //             array_push($labels, $dataRectifier->created_at->format('Y-m-d'));
+    //             array_push($data['voltage'], $dataRectifier->voltage);
+    //             array_push($data['current'], $dataRectifier->current);
+    //             array_push($data['temp'], $dataRectifier->temp);
+    //         }
+
+    //         return response()->json(compact('labels', 'data', 'rectifier'));
+    //     } else {
+    //         dd($labels, $data);
+    //     }
+    // }
 
     public function showAjaxDetail(Rectifier $rectifier, Request $request)
     {
-        $labels = array();
-        $data = [
-            'voltage' => array(),
-            'current' => array(),
-            'temp' => array()
-        ];
+        $dataRectifiers = DataRectifier::select('created_at', 'voltage', 'current', 'temp')
+            ->where('rectifier_id', $rectifier->id)->filter(request(['start_date', 'end_date']))->get();
 
-        if ($request->ajax()) {
+        $labels = $dataRectifiers->pluck('created_at')->map(function ($time) {
+            return $time->format('Y-m-d H:i');
+        })->toArray();
 
-            $dataRectifiers = DataRectifier::where('rectifier_id', $rectifier->id)->filter(request(['start_date', 'end_date']))
-                ->get();
+        $data = [];
+        $data['voltage'] = $dataRectifiers->pluck('voltage')->toArray();
+        $data['current'] = $dataRectifiers->pluck('current')->toArray();
+        $data['temp'] = $dataRectifiers->pluck('temp')->toArray();
 
-            foreach ($dataRectifiers as $dataRectifier) {
-                array_push($labels, $dataRectifier->created_at->format('Y-m-d'));
-                array_push($data['voltage'], $dataRectifier->voltage);
-                array_push($data['current'], $dataRectifier->current);
-                array_push($data['temp'], $dataRectifier->temp);
-            }
-
-            return response()->json(compact('labels', 'data', 'rectifier'));
-        } else {
-            dd($labels, $data);
-        }
+        return response()->json(compact('labels', 'data'));
     }
 
     public function showAnalysis(Rectifier $rectifier)

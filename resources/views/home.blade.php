@@ -1,6 +1,23 @@
 @extends('layouts.main')
 
 @section('container')
+    <style>
+        .colored-toast.swal2-icon-success {
+            background-color: #a5dc86 !important;
+        }
+
+        .colored-toast .swal2-title {
+            color: white;
+        }
+
+        .colored-toast .swal2-close {
+            color: white;
+        }
+
+        .colored-toast .swal2-html-container {
+            color: white;
+        }
+    </style>
     <div class="container mb-4 text-center">
         <h1>{{ $title }}</h1>
     </div>
@@ -140,6 +157,25 @@
 
     <script>
         // TOAST
+        @if (session()->has('loginSuccess'))
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-right',
+                iconColor: 'white',
+                customClass: {
+                    popup: 'colored-toast'
+                },
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true
+            })
+
+            Toast.fire({
+                icon: 'success',
+                title: '{{ session('loginSuccess') }}'
+            })
+        @endif
+
         @if (session()->has('success'))
             Swal.fire({
                 position: 'center',
@@ -196,7 +232,7 @@
         // AJAX MODAL DETAIL
         $(".detail-btn").click(function() {
             const ip_recti = $(this).attr("data-id");
-            
+
             try {
                 $.ajax({
                     url: "rectifier/detail/" + ip_recti,

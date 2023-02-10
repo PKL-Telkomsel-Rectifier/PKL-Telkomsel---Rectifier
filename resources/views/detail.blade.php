@@ -130,38 +130,51 @@
     });
 
 
-    var start_date = '';
-    var end_date = '';
+    
 
 
-    var updateChart = function(start_date = '', end_date = '') {
-
-        $.ajax({
-            url: "{{ route('api.detail', ['rectifier' => $ip_recti]) }}",
-            type: "GET",
-            dataType: "json",
-            data: {
-                start_date: start_date,
-                end_date: end_date
-            },
-            headers: {
-                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-            },
-            success: function(data) {
-                // UPDATE CHART
-                detailChart.data.labels = data.labels;
-                detailChart.data.datasets[0].data = data.data["voltage"];
-                detailChart.data.datasets[1].data = data.data["current"];
-                detailChart.data.datasets[2].data = data.data["temp"];
-                detailChart.update();
-            },
-            error: function(data) {
-                console.log(data);
-            },
-        });
+    var updateChart = function(start_date, end_date ) {
+        console.log(start_date, end_date)
+        if (start_date == '' && end_date == ''){
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: 'Warning!',
+                text: 'Isi range tanggal terlebih dahulu',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        } else {
+            $.ajax({
+                url: "{{ route('api.detail', ['rectifier' => $ip_recti]) }}",
+                type: "GET",
+                dataType: "json",
+                data: {
+                    start_date: start_date,
+                    end_date: end_date
+                },
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                },
+                success: function(data) {
+                    // UPDATE CHART
+                    detailChart.data.labels = data.labels;
+                    detailChart.data.datasets[0].data = data.data["voltage"];
+                    detailChart.data.datasets[1].data = data.data["current"];
+                    detailChart.data.datasets[2].data = data.data["temp"];
+                    detailChart.update();
+                },
+                error: function(data) {
+                    console.log(data);
+                },
+            });
+        }
     };
 
-    updateChart(start_date, end_date)
+    $(window).on('load', function() {
+        var start_date = '';
+        var end_date = '';
+    });
 
     $('#search').click(function(e) {
         e.preventDefault();

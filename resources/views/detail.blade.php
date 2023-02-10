@@ -130,19 +130,19 @@
     });
 
 
-    
 
 
-    var updateChart = function(start_date, end_date ) {
+
+    var updateChart = function(start_date, end_date) {
         console.log(start_date, end_date)
-        if (start_date == '' && end_date == ''){
+        if (start_date == '' && end_date == '') {
             Swal.fire({
                 position: 'center',
                 icon: 'warning',
                 title: 'Warning!',
                 text: 'Isi range tanggal terlebih dahulu',
                 showConfirmButton: false,
-                timer: 1500
+                timer: 2000
             })
         } else {
             $.ajax({

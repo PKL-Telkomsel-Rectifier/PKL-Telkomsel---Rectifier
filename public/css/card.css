@@ -16,6 +16,9 @@
 }
 .data-card h3 {
     color: #2e3c40;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-weight: 600;
     line-height: 1;
     padding-bottom: 0.5em;

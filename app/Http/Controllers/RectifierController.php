@@ -319,6 +319,6 @@ class RectifierController extends Controller
     public function destroy(Rectifier $rectifier)
     {
         Rectifier::destroy($rectifier->id);
-        return redirect('/home')->with('success', 'Rectifier berhasil dihapus.');
+        return redirect('/home')->with('delete-success', 'Rectifier berhasil dihapus.');
     }
 }

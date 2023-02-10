@@ -13,6 +13,22 @@
             background-image: url('/img/bloom-bg.jpg');
             overflow: hidden;
         }
+
+        .colored-toast.swal2-icon-error {
+            background-color: #f27474 !important;
+        }
+
+        .colored-toast .swal2-title {
+            color: white;
+        }
+
+        .colored-toast .swal2-close {
+            color: white;
+        }
+
+        .colored-toast .swal2-html-container {
+            color: white;
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Font Awesome -->
@@ -27,6 +43,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!-- Toastify Script -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    {{-- SWEET ALERT 2 --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -110,17 +128,22 @@
 
         // Toast Error
         @if (session()->has('loginError'))
-            Toastify({
-                text: "{{ session('loginError') }}",
-                duration: 3000,
-                close: true,
-                gravity: "top",
-                position: "right",
-                stopOnFocus: true,
-                style: {
-                    background: "#DC4C64",
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-right',
+                iconColor: 'white',
+                customClass: {
+                    popup: 'colored-toast'
                 },
-            }).showToast();
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true
+            })
+
+            Toast.fire({
+                icon: 'error',
+                title: '{{ session('loginError') }}'
+            })
         @endif
     </script>
 </body>

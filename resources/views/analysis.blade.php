@@ -5,46 +5,42 @@
         <h1 class="mt-3">TTC Analysis Chart</h1>
     </div>
 
-    <div class="d-flex flex-row">
-        <form action="#" method="GET">
-            @csrf
-            <div class="form-group mb-3">
-                <div class="card flex-row p-3">
-                    <div class="col-4 pe-2">
-                        <label for="start_date" class="w-100 text-center">Start Date</label>
-                        <input type="date" class="form-control mt-1" name="start_date" id="start_date">
+
+    <form action="#" method="GET">
+        @csrf
+        <div class="form-group mb-3">
+            <div class="card p-3">
+                <div class="d-flex flex-row">
+                    <div class="col-4 pe-2 align-self-center">
+                        <div class="form-floating">
+                            <select name="type" id="type" class="form-select" required>
+                                <option hidden value="">Choose type...</option>
+                                <option>Inner</option>
+                                <option>Outer</option>
+                                <option>TTC</option>
+                            </select>
+                            <label for="type" class="form-label text-black" style="font-weight: bold">Type</label>
+                        </div>
                     </div>
                     <div class="col-4 pe-2">
-                        <label for="end_date" class="w-100 text-center">End Date</label>
-                        <input type="date" class="form-control mt-1" name="end_date" id="end_date">
+                        <div class="form-floating">
+                            <input type="date" class="form-control" name="start_date" id="start_date">
+                            <label for="start_date" class="form-label text-black" style="font-weight: bold">Start
+                                Date</label>
+                        </div>
                     </div>
-                    <div class="col-4 align-self-end">
-                        <button id="search" type="submit" class="btn btn-primary mt-3 w-100">Search</button>
+                    <div class="col-4 pe-2">
+                        <div class="form-floating">
+                            <input type="date" class="form-control" name="end_date" id="end_date">
+                            <label for="end_date" class="form-label text-black" style="font-weight: bold">End Date</label>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
-
-        <div class="dropdown ms-auto">
-            <div class="bg-light rounded shadow-sm mb-4" style="padding: 12px">
-                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                    style="color:black">
-                    Type Rectifier
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="javascript:void(0)">TTC</a></li>
-                    <li>
-                        <hr class="dropdown-divider m-0">
-                    </li>
-                    <li><a class="dropdown-item" href="javascript:void(0)">Inner</a></li>
-                    <li>
-                        <hr class="dropdown-divider m-0">
-                    </li>
-                    <li><a class="dropdown-item" href="javascript:void(0)">Outer</a></li>
-                </ul>
+                <button id="search" type="submit" class="btn btn-primary mt-3 w-100">Search</button>
             </div>
         </div>
-    </div>
+    </form>
+
 
     <h1>Voltage</h1>
     <div class="chartBox mb-4"

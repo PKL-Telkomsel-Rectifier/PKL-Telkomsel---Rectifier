@@ -76,9 +76,9 @@
                             </div>
                             <h3>{{ $rectifier->name }}</h3>
                             <h4>{{ $rectifier->ip_recti }}</h4>
-                            <h6>Voltage : {{ $rectifier->getVoltage($rectifier) }}</h6>
-                            <h6>Current : {{ $rectifier->getCurrent($rectifier) }}</h6>
-                            <h6>Temperature : {{ $rectifier->getTemp($rectifier) }}</h6>
+                            <h6>Voltage : {{ $rectifier->dataRectifiers->last()->voltage }}</h6>
+                            <h6>Current : {{ $rectifier->dataRectifiers->last()->current }}</h6>
+                            <h6>Temperature : {{ $rectifier->dataRectifiers->last()->temp }}</h6>
                             <p>Site : {{ $rectifier->site_name }}</p>
                             <p>RTPO : {{ $rectifier->rtpo }}</p>
                             <p>NSA : {{ $rectifier->nsa }}</p>
@@ -87,15 +87,17 @@
                                 <div class="col-6">
                                     <a href="javascript:void(0)" class="detail-btn" data-bs-toggle="modal"
                                         data-id="{{ $rectifier->ip_recti }}" data-bs-target="#modalRecti">
-                                        <span class="link-text">
-                                            Details
-                                            <svg width="25" height="16" viewBox="0 0 25 16" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z"
-                                                    fill="#753BBD" />
-                                            </svg>
-                                        </span>
+                                        <div>
+                                            <span class="link-text">
+                                                Details
+                                                <svg width="25" height="16" viewBox="0 0 25 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z"
+                                                        fill="#753BBD" />
+                                                </svg>
+                                            </span>
+                                        </div>
                                     </a>
                                 </div>
                                 <div class="col-6">
@@ -139,26 +141,35 @@
     <script>
         // TOAST
         @if (session()->has('success'))
-            Toastify({
-                text: "{{ session('success') }}",
-                duration: 3000,
-                close: true,
-                gravity: "top",
-                position: "right",
-                stopOnFocus: true,
-                style: {
-                    background: "#14A44D",
-                },
-            }).showToast();
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Success!',
+                text: 'Rectifier Added Successfully',
+                showConfirmButton: false,
+                timer: 2000
+            })
         @endif
 
         @if (session()->has('edit-success'))
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'Edit Successfully',
+                title: 'Success!',
+                text: 'Rectifier Edited Successfully',
                 showConfirmButton: false,
-                timer: 1500
+                timer: 2000
+            })
+        @endif
+
+        @if (session()->has('delete-success'))
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Success!',
+                text: 'Rectifier Deleted Successfully',
+                showConfirmButton: false,
+                timer: 2000
             })
         @endif
 

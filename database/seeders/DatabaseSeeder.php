@@ -31,20 +31,20 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('Telkomsel#1'),
         ]);
 
-        // Rectifier::create([
-        //     'name' => 'LAPTOP LEGION',
-        //     'site_name' => 'localhost',
-        //     'rtpo' => 'SEMARANG',
-        //     'nsa' => 'Gombel',
-        //     'type' => 'Inner',
-        //     'ip_recti' => '127.0.0.1',
-        //     'community' => 'serverpkl',
-        //     'version' => 1,
-        //     'port' => 161,
-        //     'oid_voltage' => '.1.3.6.1.2.1.25.1.6.0',
-        //     'oid_temp' => '.1.3.6.1.2.1.25.2.2.0',
-        //     'oid_current' => '.1.3.6.1.2.1.25.1.1.0'
-        // ]);
+        Rectifier::create([
+            'name' => 'Laptop Gybran',
+            'site_name' => 'localhost',
+            'rtpo' => 'Surakarta',
+            'nsa' => 'Solo',
+            'type' => 'TTC',
+            'ip_recti' => '127.0.0.1',
+            'community' => 'serverpkl',
+            'version' => 1,
+            'port' => 161,
+            'oid_voltage' => '.1.3.6.1.2.1.25.1.6.0',
+            'oid_temp' => '.1.3.6.1.2.1.6.7.0',
+            'oid_current' => '.1.3.6.1.2.1.6.8.0'
+        ]);
 
         // Rectifier::create([
         //     'name' => 'Rectifier BSS.1',

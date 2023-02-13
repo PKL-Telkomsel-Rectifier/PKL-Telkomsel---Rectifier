@@ -18,31 +18,54 @@
             color: white;
         }
     </style>
-    <div class="container mb-4 text-center">
-        <h1>{{ $title }}</h1>
+    <div class="container mb-4">
+        <h1>Hi Admin, Selamat datang</h1>
     </div>
+
+    {{-- Card Total Recti --}}
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <a href="/home" class="data-card" style="min-height:15em">
+                <h3 class="text-center">All Rectifier</h3>
+                <div class="d-flex justify-content-center align-items-center" style="flex-grow: 1;">
+                    <h3 class="pb-0 mb-0" style="border-bottom:0px;">
+                        {{ $rectifiers->count() }}</h3>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <a href="/home?type=TTC" class="data-card" style="min-height:15em">
+                <h3 class="text-center">TTC Rectifier</h3>
+                <div class="d-flex justify-content-center align-items-center" style="flex-grow: 1;">
+                    <h3 class="pb-0 mb-0" style="border-bottom:0px;">
+                        {{ $rectifiers->where('type', 'TTC')->count() }}</h3>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <a href="/home?type=Inner" class="data-card" style="min-height:15em">
+                <h3 class="text-center">Inner Rectifier</h3>
+                <div class="d-flex justify-content-center align-items-center" style="flex-grow: 1;">
+                    <h3 class="pb-0 mb-0" style="border-bottom:0px;">
+                        {{ $rectifiers->where('type', 'Inner')->count() }}</h3>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <a href="/home?type=Outer" class="data-card" style="min-height:15em">
+                <h3 class="text-center">Outer Rectifier</h3>
+                <div class="d-flex justify-content-center align-items-center" style="flex-grow: 1;">
+                    <h3 class="pb-0 mb-0" style="border-bottom:0px;">
+                        {{ $rectifiers->where('type', 'Outer')->count() }}</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+
     <div class="filter d-flex justify-content-between">
 
-        {{-- DROPDOWN  --}}
-        <div class="dropdown">
-            <div class="bg-light rounded shadow-sm mb-4" style="padding: 12px">
-                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                    style="color:black">
-                    Type Rectifier
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/home?type=TTC">TTC</a></li>
-                    <li>
-                        <hr class="dropdown-divider m-0">
-                    </li>
-                    <li><a class="dropdown-item" href="/home?type=Inner">Inner</a></li>
-                    <li>
-                        <hr class="dropdown-divider m-0">
-                    </li>
-                    <li><a class="dropdown-item" href="/home?type=Outer">Outer</a></li>
-                </ul>
-            </div>
-        </div>
+        {{-- TITLE  --}}
+        <h2>{{ $title }}</h2>
 
         {{-- SEARCH  --}}
         <div class="p-1 bg-light rounded shadow-sm mb-4">
@@ -150,7 +173,7 @@
 
         </div>
 
-        <div class="d-flex justify-content-end">
+        <div class="page">
             {{ $rectifiers->links() }}
         </div>
     </main>

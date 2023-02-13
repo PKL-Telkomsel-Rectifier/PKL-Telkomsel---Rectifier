@@ -185,6 +185,14 @@
                     if (!form.checkValidity()) {
                         event.preventDefault()
                         event.stopPropagation()
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'warning',
+                            title: 'Warning!',
+                            text: 'Silahkan isi form dengan lengkap',
+                            showConfirmButton: false,
+                            timer: 2000
+                        })
                     }
 
                     form.classList.add('was-validated')

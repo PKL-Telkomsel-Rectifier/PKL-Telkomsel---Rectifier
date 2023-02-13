@@ -11,7 +11,7 @@
         <div class="form-group mb-3">
             <div class="card p-3">
                 <div class="d-flex flex-row">
-                    <div class="col-4 pe-2 align-self-center">
+                    <div class="col-4 pe-2">
                         <div class="form-floating">
                             <select name="type" id="type" class="form-select">
                                 <option hidden value="">Choose type...</option>
@@ -29,7 +29,7 @@
                                 Date</label>
                         </div>
                     </div>
-                    <div class="col-4 pe-2">
+                    <div class="col-4">
                         <div class="form-floating">
                             <input type="date" class="form-control" name="end_date" id="end_date">
                             <label for="end_date" class="form-label text-black" style="font-weight: bold">End Date</label>

@@ -28,12 +28,12 @@ Route::post('/logout', [LoginController::class, 'logout']);
  * Rectifier Routes
  */
 Route::get('/home', [RectifierController::class, 'index'])->middleware('auth');
-Route::get('/edit/{rectifier:ip_recti}', [RectifierController::class, 'edit'])->middleware('auth');
-Route::post('/edit/{rectifier:ip_recti}', [RectifierController::class, 'update'])->middleware('auth');
-Route::get('/delete/{rectifier:ip_recti}', [RectifierController::class, 'delete'])->middleware('auth');
-Route::post('/delete/{rectifier:ip_recti}', [RectifierController::class, 'destroy'])->middleware('auth');
 Route::get('/form', [RectifierController::class, 'create'])->middleware('auth');
 Route::post('/form', [RectifierController::class, 'store'])->middleware('auth');
+Route::get('/edit/{rectifier:ip_recti}', [RectifierController::class, 'edit'])->middleware('auth');
+Route::put('/edit/{rectifier:ip_recti}', [RectifierController::class, 'update'])->middleware('auth');
+Route::get('/delete/{rectifier:ip_recti}', [RectifierController::class, 'delete'])->middleware('auth');
+Route::delete('/delete/{rectifier:ip_recti}', [RectifierController::class, 'destroy'])->middleware('auth');
 
 /**
  * Chart Routes

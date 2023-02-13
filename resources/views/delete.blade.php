@@ -9,6 +9,7 @@
 
     <form action="/delete/{{ $rectifier->ip_recti }}" method="POST" class="needs-validation" novalidate>
         @csrf
+        @method('delete')
 
         <div class="row mx-3">
             <div class="col-md-6">

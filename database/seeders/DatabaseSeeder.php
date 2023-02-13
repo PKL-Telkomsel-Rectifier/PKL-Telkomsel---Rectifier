@@ -46,6 +46,9 @@ class DatabaseSeeder extends Seeder
             'oid_current' => '.1.3.6.1.2.1.6.8.0'
         ]);
 
+        Rectifier::factory(29)->create();
+        DataRectifier::factory(100000)->create();
+
         // Rectifier::create([
         //     'name' => 'Rectifier BSS.1',
         //     'site_name' => 'TTC Nusukan',

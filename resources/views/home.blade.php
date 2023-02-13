@@ -38,7 +38,7 @@
                 <h3 class="text-center">TTC Rectifier</h3>
                 <div class="d-flex justify-content-center align-items-center" style="flex-grow: 1;">
                     <h3 class="pb-0 mb-0" style="border-bottom:0px;">
-                        {{ $rectifiers->count() }}</h3>
+                        {{ $rectifiers->where('type', 'TTC')->count() }}</h3>
                 </div>
             </a>
         </div>
@@ -47,7 +47,7 @@
                 <h3 class="text-center">Inner Rectifier</h3>
                 <div class="d-flex justify-content-center align-items-center" style="flex-grow: 1;">
                     <h3 class="pb-0 mb-0" style="border-bottom:0px;">
-                        {{ $rectifiers->count() }}</h3>
+                        {{ $rectifiers->where('type', 'Inner')->count() }}</h3>
                 </div>
             </a>
         </div>
@@ -56,7 +56,7 @@
                 <h3 class="text-center">Outer Rectifier</h3>
                 <div class="d-flex justify-content-center align-items-center" style="flex-grow: 1;">
                     <h3 class="pb-0 mb-0" style="border-bottom:0px;">
-                        {{ $rectifiers->count() }}</h3>
+                        {{ $rectifiers->where('type', 'Outer')->count() }}</h3>
                 </div>
             </a>
         </div>

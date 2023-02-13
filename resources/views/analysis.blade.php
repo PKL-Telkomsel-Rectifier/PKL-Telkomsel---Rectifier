@@ -13,7 +13,7 @@
                 <div class="d-flex flex-row">
                     <div class="col-4 pe-2">
                         <div class="form-floating">
-                            <select name="type" id="type" class="form-select" required>
+                            <select name="type" id="type" class="form-select">
                                 <option hidden value="">Choose type...</option>
                                 <option>Inner</option>
                                 <option>Outer</option>
@@ -158,102 +158,157 @@
             },
         });
 
-        var start_date = '';
-        var end_date = '';
-
-
-        var updateChartVoltage = function(start_date = '', end_date = '') {
-
-            $.ajax({
-                url: "/analysis/voltage",
-                type: "GET",
-                dataType: "json",
-                data: {
-                    start_date: start_date,
-                    end_date: end_date
-                },
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                },
-                success: function(data) {
-                    // UPDATE CHART
-                    detailChartVol.data.labels = data.labels;
-                    detailChartVol.data.datasets = data.datasets;
-                    detailChartVol.update();
-                },
-                error: function(data) {
-                    console.log(data);
-                },
-            });
-        };
-
-        var updateChartCurrent = function(start_date = '', end_date = '') {
-
-            $.ajax({
-                url: "/analysis/current",
-                type: "GET",
-                dataType: "json",
-                data: {
-                    start_date: start_date,
-                    end_date: end_date
-                },
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                },
-                success: function(data) {
-                    // UPDATE CHART
-                    detailChartCur.data.labels = data.labels;
-                    detailChartCur.data.datasets = data.datasets;
-                    detailChartCur.update();
-                },
-                error: function(data) {
-                    console.log(data);
-                },
-            });
-        };
-
-        var updateChartTmp = function(start_date = '', end_date = '') {
-
-            $.ajax({
-                url: "/analysis/temp",
-                type: "GET",
-                dataType: "json",
-                data: {
-                    start_date: start_date,
-                    end_date: end_date
-                },
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                },
-                success: function(data) {
-                    // UPDATE CHART
-                    detailChartTmp.data.labels = data.labels;
-                    detailChartTmp.data.datasets = data.datasets;
-                    detailChartTmp.update();
-                },
-                error: function(data) {
-                    console.log(data);
-                },
-            });
-        };
 
         $(window).on('load', function() {
-            updateChartVoltage(start_date, end_date)
-            updateChartCurrent(start_date, end_date)
-            updateChartTmp(start_date, end_date)
+            start_date = ''
+            end_date = ''
+            type = ''
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: 'Warning!',
+                text: 'Isi range tanggal terlebih dahulu',
+                showConfirmButton: false,
+                timer: 1500
+            })
         })
 
+        var updateChart = function(start_date, end_date, type) {
+
+            if ((start_date == '' && end_date == '') || type == ''){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'warning',
+                    title: 'Warning!',
+                    text: 'Isi range tanggal terlebih dahulu',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            } else {
+
+                $.ajax({
+                    url: "/analysis/all",
+                    type: "GET",
+                    dataType: "json",
+                    data: {
+                        start_date: start_date,
+                        end_date: end_date,
+                        type: type,
+                    },
+                    headers: {
+                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                    },
+                    success: function(data) {
+                        // LABELS 
+                        detailChartVol.data.labels = data.labels;
+                        detailChartCur.data.labels = data.labels;
+                        detailChartTmp.data.labels = data.labels;
+
+                        // LABEL => NAMA RECTIFIERS
+                        detailChartVol.data.datasets = data.datasetsVol;
+                        detailChartCur.data.datasets = data.datasetsCur;
+                        detailChartTmp.data.datasets = data.datasetsTmp;
+
+                        // UPDATE SERIES CHART
+                        detailChartVol.update();
+                        detailChartCur.update();
+                        detailChartTmp.update();
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    },
+                });
+            }
+
+        };
+
+        // var updateChartVoltage = function(start_date = '', end_date = '') {
+
+        //     $.ajax({
+        //         url: "/analysis/voltage",
+        //         type: "GET",
+        //         dataType: "json",
+        //         data: {
+        //             start_date: start_date,
+        //             end_date: end_date
+        //         },
+        //         headers: {
+        //             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        //         },
+        //         success: function(data) {
+        //             // UPDATE CHART
+        //             detailChartVol.data.labels = data.labels;
+        //             detailChartVol.data.datasets = data.datasets;
+        //             detailChartVol.update();
+        //         },
+        //         error: function(data) {
+        //             console.log(data);
+        //         },
+        //     });
+        // };
+
+        // var updateChartCurrent = function(start_date = '', end_date = '') {
+
+        //     $.ajax({
+        //         url: "/analysis/current",
+        //         type: "GET",
+        //         dataType: "json",
+        //         data: {
+        //             start_date: start_date,
+        //             end_date: end_date
+        //         },
+        //         headers: {
+        //             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        //         },
+        //         success: function(data) {
+        //             // UPDATE CHART
+        //             detailChartCur.data.labels = data.labels;
+        //             detailChartCur.data.datasets = data.datasets;
+        //             detailChartCur.update();
+        //         },
+        //         error: function(data) {
+        //             console.log(data);
+        //         },
+        //     });
+        // };
+
+        // var updateChartTmp = function(start_date = '', end_date = '') {
+
+        //     $.ajax({
+        //         url: "/analysis/temp",
+        //         type: "GET",
+        //         dataType: "json",
+        //         data: {
+        //             start_date: start_date,
+        //             end_date: end_date
+        //         },
+        //         headers: {
+        //             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        //         },
+        //         success: function(data) {
+        //             // UPDATE CHART
+        //             detailChartTmp.data.labels = data.labels;
+        //             detailChartTmp.data.datasets = data.datasets;
+        //             detailChartTmp.update();
+        //         },
+        //         error: function(data) {
+        //             console.log(data);
+        //         },
+        //     });
+        // };
 
         $('#search').click(function(e) {
             e.preventDefault();
             start_date = $('#start_date').val()
             end_date = $('#end_date').val()
+            type = $('#type').val()
 
-            console.log(`start date: ${start_date} | end date: ${end_date}`);
+            console.log(`start date: ${start_date} | end date: ${end_date} | type: ${type}`);
 
-            updateChartVoltage(start_date, end_date)
-            updateChartCurrent(start_date, end_date)
-            updateChartTmp(start_date, end_date)
+            updateChart(start_date, end_date, type)
+            // updateChartVoltage(start_date, end_date)
+            // updateChartCurrent(start_date, end_date)
+            // updateChartTmp(start_date, end_date)
         })
     </script>
 @endsection

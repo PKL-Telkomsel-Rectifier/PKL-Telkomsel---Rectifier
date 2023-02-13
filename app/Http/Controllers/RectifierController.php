@@ -191,138 +191,213 @@ class RectifierController extends Controller
         ]);
     }
 
-    public function ajaxAnalysisVoltage(Request $request)
+    public function ajaxAnalysisAll(Request $request)
     {
-        $all_recti = Rectifier::filter(request(['type']))->get();
-        $all_data = DataRectifier::filter(request(['start_date', 'end_date']))->get();
-        $labels = $all_data->pluck('created_at')->map(function ($date) {
-            return $date->format('Y-m-d H:i');
-        });
+        $rectifiers = Rectifier::without('dataRectifiers')->select('id', 'name')->filter(request(['type']))->get();
+        $dataRectifiers = DataRectifier::select('rectifier_id', 'voltage', 'current', 'temp', 'created_at')
+            ->filter(request(['start_date', 'end_date']))->whereHas('rectifier', function ($query) {
+                $query->where('type', request(['type']));
+            })->get();
+        $labels = $dataRectifiers->pluck('created_at')->map(function ($label) {
+            return $label->format('Y-m-d H:i');
+        })->unique()->values();
 
-        $datasets = [];
-        foreach ($all_recti as $recti) {
-            $voltage_data = new Collection();
-            foreach ($labels as $time) {
-                $filter_data = $all_data->filter(function ($value) use ($time, $recti) {
-                    return (substr($value['created_at'], 0, 16) === $time) && $value['rectifier_id'] === $recti->id;
-                });
+        $all_data = [];
+        $all_data['rectifiers'] = $rectifiers->pluck('name')->toArray();
+        $all_data['dataVoltage'] = [];
+        $all_data['dataCurrent'] = [];
+        $all_data['dataTemp'] = [];
+        $dummy = array_fill(0, sizeof($labels), null);
 
-                $voltage = $filter_data->pluck('voltage')->first();
-                if ($voltage) {
-                    $voltage_data->push($voltage);
-                } else {
-                    $voltage_data->push(null);
+        foreach ($rectifiers as $rectifier) {
+            $dataVoltage = $dummy;
+            $dataCurrent = $dummy;
+            $dataTemp = $dummy;
+            foreach ($dataRectifiers as $dataRectifier) {
+                if ($dataRectifier->rectifier_id == $rectifier->id) {
+                    $index = $labels->search($dataRectifier->created_at->format('Y-m-d H:i'));
+                    $dataVoltage[$index] = $dataRectifier->voltage;
+                    $dataCurrent[$index] = $dataRectifier->current;
+                    $dataTemp[$index] = $dataRectifier->temp;
                 }
             }
-
-            // foreach ($times as $time) {
-            //     if ($all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()) {
-            //         array_push($voltage_data, $all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()->voltage);
-            //     } else {
-            //         array_push($voltage_data, null);
-            //     }
-            // }
-
-            $randomColor = 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)';
-            array_push($datasets, [
-                'label' => $recti->name,
-                // 'data' => $all_data->where('rectifier_id', $recti->id)->pluck('voltage'),
-                'data' => $voltage_data,
-                'borderColor' => $randomColor,
-                'backgroundColor' => $randomColor,
-                'fill' => false,
-            ]);
+            array_push($all_data['dataVoltage'], $dataVoltage);
+            array_push($all_data['dataCurrent'], $dataCurrent);
+            array_push($all_data['dataTemp'], $dataTemp);
         }
-        return response()->json(compact('labels', 'datasets'));
+        // dd($dataRectifiers->count());
+        // dd(count(array_filter($all_data['dataCurrent'][0])));
+
+        $datasetsVol = [];
+        $datasetsCur = [];
+        $datasetsTmp = [];
+
+        for ($i = 0; $i < sizeof($all_data['rectifiers']); $i++) {
+            $randomColor = 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)';
+            $datasetsVol[$i] = [
+                'label' => $all_data['rectifiers'][$i],
+                'data' => $all_data['dataVoltage'][$i],
+                'fill' => false,
+                'borderColor' => $randomColor,
+                'lineTension' => 0.1
+            ];
+            $datasetsCur[$i] = [
+                'label' => $all_data['rectifiers'][$i],
+                'data' => $all_data['dataCurrent'][$i],
+                'fill' => false,
+                'borderColor' => $randomColor,
+                'lineTension' => 0.1
+            ];
+            $datasetsTmp[$i] = [
+                'label' => $all_data['rectifiers'][$i],
+                'data' => $all_data['dataTemp'][$i],
+                'fill' => false,
+                'borderColor' => $randomColor,
+                'lineTension' => 0.1
+            ];
+        }
+        return response()->json(compact('labels', 'datasetsVol', 'datasetsCur', 'datasetsTmp'));
     }
 
-    public function ajaxAnalysisCurrent(Request $request)
+    public function chart()
     {
-        $all_recti = Rectifier::filter(request(['type']))->get();
-        $all_data = DataRectifier::filter(request(['start_date', 'end_date']))->get();
-        $labels = $all_data->pluck('created_at')->map(function ($date) {
-            return $date->format('Y-m-d H:i');
-        });
-
-        $datasets = [];
-        foreach ($all_recti as $recti) {
-            $current_data = new Collection();
-            foreach ($labels as $time) {
-                $filter_data = $all_data->filter(function ($value) use ($time, $recti) {
-                    return (substr($value['created_at'], 0, 16) === $time) && $value['rectifier_id'] === $recti->id;
-                });
-
-                $current = $filter_data->pluck('current')->first();
-                if ($current) {
-                    $current_data->push($current);
-                } else {
-                    $current_data->push(null);
-                }
-            }
-            // $current_data = [];
-            // foreach ($times as $time) {
-            //     if ($all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()) {
-            //         array_push($current_data, $all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()->current);
-            //     } else {
-            //         array_push($current_data, null);
-            //     }
-            // }
-            $randomColor = 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)';
-            array_push($datasets, [
-                'label' => $recti->name,
-                // 'data' => $all_data->where('rectifier_id', $recti->id)->pluck('current'),
-                'data' => $current_data,
-                'borderColor' => $randomColor,
-                'backgroundColor' => $randomColor,
-                'fill' => false,
-            ]);
-        }
-        return response()->json(compact('labels', 'datasets'));
+        $rectifiers = Rectifier::all();
+        $datarectifiers = DataRectifier::all();
+        return view('temp', compact('rectifiers', 'datarectifiers'));
     }
 
-    public function ajaxAnalysisTemp(Request $request)
-    {
-        $all_recti = Rectifier::filter(request(['type']))->get();
-        $all_data = DataRectifier::filter(request(['start_date', 'end_date']))->get();
-        $labels = $all_data->pluck('created_at')->map(function ($date) {
-            return $date->format('Y-m-d H:i');
-        });
+    // public function ajaxAnalysisVoltage(Request $request)
+    // {
+    //     $all_recti = Rectifier::filter(request(['type']))->get();
+    //     $all_data = DataRectifier::filter(request(['start_date', 'end_date']))->get();
+    //     $labels = $all_data->pluck('created_at')->map(function ($date) {
+    //         return $date->format('Y-m-d H:i');
+    //     });
 
-        $datasets = [];
-        foreach ($all_recti as $recti) {
-            $temp_data = new Collection();
-            foreach ($labels as $time) {
-                $filter_data = $all_data->filter(function ($value) use ($time, $recti) {
-                    return (substr($value['created_at'], 0, 16) === $time) && $value['rectifier_id'] === $recti->id;
-                });
+    //     $datasets = [];
+    //     foreach ($all_recti as $recti) {
+    //         $voltage_data = new Collection();
+    //         foreach ($labels as $time) {
+    //             $filter_data = $all_data->filter(function ($value) use ($time, $recti) {
+    //                 return (substr($value['created_at'], 0, 16) === $time) && $value['rectifier_id'] === $recti->id;
+    //             });
 
-                $temp = $filter_data->pluck('temp')->first();
-                if ($temp) {
-                    $temp_data->push($temp);
-                } else {
-                    $temp_data->push(null);
-                }
-            }
-            // $temp_data = [];
-            // foreach ($times as $time) {
-            //     if ($all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()) {
-            //         array_push($temp_data, $all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()->temp);
-            //     } else {
-            //         array_push($temp_data, null);
-            //     }
-            // }
-            $randomColor = 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)';
-            array_push($datasets, [
-                'label' => $recti->name,
-                // 'data' => $all_data->where('rectifier_id', $recti->id)->pluck('temp'),
-                'data' => $temp_data,
-                'backgroundColor' => $randomColor,
-                'borderColor' => $randomColor,
-                'fill' => false,
-            ]);
-        }
-        return response()->json(compact('labels', 'datasets'));
-    }
+    //             $voltage = $filter_data->pluck('voltage')->first();
+    //             if ($voltage) {
+    //                 $voltage_data->push($voltage);
+    //             } else {
+    //                 $voltage_data->push(null);
+    //             }
+    //         }
+
+    //         // foreach ($times as $time) {
+    //         //     if ($all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()) {
+    //         //         array_push($voltage_data, $all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()->voltage);
+    //         //     } else {
+    //         //         array_push($voltage_data, null);
+    //         //     }
+    //         // }
+
+    //         $randomColor = 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)';
+    //         array_push($datasets, [
+    //             'label' => $recti->name,
+    //             // 'data' => $all_data->where('rectifier_id', $recti->id)->pluck('voltage'),
+    //             'data' => $voltage_data,
+    //             'borderColor' => $randomColor,
+    //             'backgroundColor' => $randomColor,
+    //             'fill' => false,
+    //         ]);
+    //     }
+    //     return response()->json(compact('labels', 'datasets'));
+    // }
+
+    // public function ajaxAnalysisCurrent(Request $request)
+    // {
+    //     $all_recti = Rectifier::filter(request(['type']))->get();
+    //     $all_data = DataRectifier::filter(request(['start_date', 'end_date']))->get();
+    //     $labels = $all_data->pluck('created_at')->map(function ($date) {
+    //         return $date->format('Y-m-d H:i');
+    //     });
+
+    //     $datasets = [];
+    //     foreach ($all_recti as $recti) {
+    //         $current_data = new Collection();
+    //         foreach ($labels as $time) {
+    //             $filter_data = $all_data->filter(function ($value) use ($time, $recti) {
+    //                 return (substr($value['created_at'], 0, 16) === $time) && $value['rectifier_id'] === $recti->id;
+    //             });
+
+    //             $current = $filter_data->pluck('current')->first();
+    //             if ($current) {
+    //                 $current_data->push($current);
+    //             } else {
+    //                 $current_data->push(null);
+    //             }
+    //         }
+    //         // $current_data = [];
+    //         // foreach ($times as $time) {
+    //         //     if ($all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()) {
+    //         //         array_push($current_data, $all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()->current);
+    //         //     } else {
+    //         //         array_push($current_data, null);
+    //         //     }
+    //         // }
+    //         $randomColor = 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)';
+    //         array_push($datasets, [
+    //             'label' => $recti->name,
+    //             // 'data' => $all_data->where('rectifier_id', $recti->id)->pluck('current'),
+    //             'data' => $current_data,
+    //             'borderColor' => $randomColor,
+    //             'backgroundColor' => $randomColor,
+    //             'fill' => false,
+    //         ]);
+    //     }
+    //     return response()->json(compact('labels', 'datasets'));
+    // }
+
+    // public function ajaxAnalysisTemp(Request $request)
+    // {
+    //     $all_recti = Rectifier::filter(request(['type']))->get();
+    //     $all_data = DataRectifier::filter(request(['start_date', 'end_date']))->get();
+    //     $labels = $all_data->pluck('created_at')->map(function ($date) {
+    //         return $date->format('Y-m-d H:i');
+    //     });
+
+    //     $datasets = [];
+    //     foreach ($all_recti as $recti) {
+    //         $temp_data = new Collection();
+    //         foreach ($labels as $time) {
+    //             $filter_data = $all_data->filter(function ($value) use ($time, $recti) {
+    //                 return (substr($value['created_at'], 0, 16) === $time) && $value['rectifier_id'] === $recti->id;
+    //             });
+
+    //             $temp = $filter_data->pluck('temp')->first();
+    //             if ($temp) {
+    //                 $temp_data->push($temp);
+    //             } else {
+    //                 $temp_data->push(null);
+    //             }
+    //         }
+    //         // $temp_data = [];
+    //         // foreach ($times as $time) {
+    //         //     if ($all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()) {
+    //         //         array_push($temp_data, $all_data->where('created_at', $time)->where('rectifier_id', $recti->id)->first()->temp);
+    //         //     } else {
+    //         //         array_push($temp_data, null);
+    //         //     }
+    //         // }
+    //         $randomColor = 'rgba(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ', 1)';
+    //         array_push($datasets, [
+    //             'label' => $recti->name,
+    //             // 'data' => $all_data->where('rectifier_id', $recti->id)->pluck('temp'),
+    //             'data' => $temp_data,
+    //             'backgroundColor' => $randomColor,
+    //             'borderColor' => $randomColor,
+    //             'fill' => false,
+    //         ]);
+    //     }
+    //     return response()->json(compact('labels', 'datasets'));
+    // }
 
 
     /**

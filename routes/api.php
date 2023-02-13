@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DataRectifierController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RectifierController;
@@ -15,5 +16,5 @@ use App\Http\Controllers\RectifierController;
 |
 */
 
-Route::get('/rectifier/realtime/{rectifier:ip_recti}', [RectifierController::class, 'showAjax'])->name('api.realtime');
-Route::get('/rectifier/detail/{rectifier:ip_recti}', [RectifierController::class, 'showAjaxDetail'])->name('api.detail');
+// Route::get('/rectifier/realtime/{rectifier:ip_recti}', [DataRectifierController::class, 'showDataRealtime'])->name('api.realtime');
+// Route::get('/rectifier/detail/{rectifier:ip_recti}', [DataRectifierController::class, 'showDataDetail'])->name('api.detail');

@@ -1,4 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+<style>
+    .active {
+        display: inline-flex;
+        border-bottom: 3px solid #9146ff;
+        border-radius: 3px;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color:#18181b;">
     <!-- Container wrapper -->
     <div class="container">
         <!-- Toggle button -->
@@ -17,13 +25,14 @@
             <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('home') ? 'active' : '' }}" href="/home">Home</a>
+                    <a class="nav-link text-white {{ Request::is('home') ? 'active' : '' }}" href="/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('form') ? 'active' : '' }}" href="/form">Form</a>
+                    <a class="nav-link text-white {{ Request::is('form') ? 'active' : '' }}" href="/form">Form</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('analysis') ? 'active' : '' }}" href="/analysis">Analysis</a>
+                    <a class="nav-link text-white {{ Request::is('analysis') ? 'active' : '' }}"
+                        href="/analysis">Analysis</a>
                 </li>
 
             </ul>

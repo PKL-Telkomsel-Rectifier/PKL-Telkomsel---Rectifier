@@ -146,7 +146,7 @@
             })
         } else {
             $.ajax({
-                url: "{{ route('api.detail', ['rectifier' => $ip_recti]) }}",
+                url: "{{ route('api.detail', ['rectifier' => $ip_recti]), }}",
                 type: "GET",
                 dataType: "json",
                 data: {

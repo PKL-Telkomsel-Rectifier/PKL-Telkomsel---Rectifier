@@ -17,7 +17,7 @@ class DataRectifierFactory extends Factory
     public function definition()
     {
         return [
-            'rectifier_id' => mt_rand(1, 5),
+            'rectifier_id' => mt_rand(1, 30),
             'voltage' => $this->faker->randomFloat(2, 30, 50),
             'current' => $this->faker->randomFloat(2, 20, 50),
             'temp' => $this->faker->randomFloat(2, 0, 30),

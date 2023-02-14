@@ -9,6 +9,7 @@
 
     <form action="/edit/{{ $rectifier->ip_recti }}" method="POST" class="needs-validation" novalidate>
         @csrf
+        @method('put')
 
         <div class="row mx-3">
             <div class="col-md-6">

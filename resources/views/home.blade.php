@@ -32,7 +32,7 @@
                             <h3 class="text-center">All Rectifier</h3>
                             <div class="d-flex justify-content-center align-items-center" style="flex-grow: 1;">
                                 <h1 class="pb-0 mb-0">
-                                    {{ $count = DB::table('rectifiers')->count() }}
+                                    {{ $numAll }}
                                 </h1>
                             </div>
                         </a>
@@ -42,7 +42,7 @@
                             <h3 class="text-center">TTC Rectifier</h3>
                             <div class="d-flex justify-content-center align-items-center" style="flex-grow: 1;">
                                 <h1 class="pb-0 mb-0">
-                                    {{ $count = DB::table('rectifiers')->where('type', 'TTC')->count() }}</h1>
+                                    {{ $numTtc }}</h1>
                             </div>
                         </a>
                     </div>
@@ -51,7 +51,7 @@
                             <h3 class="text-center">Inner Rectifier</h3>
                             <div class="d-flex justify-content-center align-items-center" style="flex-grow: 1;">
                                 <h1 class="pb-0 mb-0">
-                                    {{ $count = DB::table('rectifiers')->where('type', 'Inner')->count() }}</h1>
+                                    {{ $numInner }}</h1>
                             </div>
                         </a>
                     </div>
@@ -60,7 +60,7 @@
                             <h3 class="text-center">Outer Rectifier</h3>
                             <div class="d-flex justify-content-center align-items-center" style="flex-grow: 1;">
                                 <h1 class="pb-0 mb-0">
-                                    {{ $count = DB::table('rectifiers')->where('type', 'Outer')->count() }}</h1>
+                                    {{ $numOuter }}</h1>
                             </div>
                         </a>
                     </div>

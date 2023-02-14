@@ -46,8 +46,8 @@ class DatabaseSeeder extends Seeder
             'oid_current' => '.1.3.6.1.2.1.6.8.0'
         ]);
 
-        Rectifier::factory(29)->create();
-        DataRectifier::factory(100000)->create();
+        // Rectifier::factory(29)->create();
+        // DataRectifier::factory(100000)->create();
 
         // Rectifier::create([
         //     'name' => 'Rectifier BSS.1',
@@ -188,13 +188,6 @@ class DatabaseSeeder extends Seeder
         //     'oid_voltage' => '.1.3.6.1.4.1.2011.6.164.1.6.1.3.0',
         //     'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
         //     'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
-        // ]);
-
-        // DataRectifier::create([
-        //     'rectifier_id' => 1,
-        //     'voltage' => 342,
-        //     'current' => 234,
-        //     'temp' => 24.2,
         // ]);
     }
 }

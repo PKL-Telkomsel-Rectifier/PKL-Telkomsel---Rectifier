@@ -41,7 +41,13 @@ class Rectifier extends Model
             'community' => $rectifier->community
         ]);
 
-        $result = $snmp->getValue($rectifier->oid_voltage) / 10;
+        $result = $snmp->getValue($rectifier->oid_voltage);
+
+        if (mb_strlen($result) > 3) {
+            $result = $result / 100;
+        } else {
+            $result = $result / 10;
+        }
 
         return $result;
     }

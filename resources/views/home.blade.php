@@ -188,7 +188,7 @@
             </div>
 
             <div class="page">
-                {{ $rectifiers->links() }}
+                {{ $rectifiers->fragment('recti')->links() }}
             </div>
         </main>
     </div>

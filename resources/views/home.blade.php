@@ -20,15 +20,16 @@
     </style>
     <div style="background-image:url('/img/dark-bloom.jpg')">
         <div class="container">
-            <div class="p-3 mb-3" style="min-height:90vh">
+            <div class="d-flex flex-column justify-content-center p-3 mb-3" style="min-height:90vh">
                 <div class="container mb-4">
                     <h1 class="text-white">Hi Admin, Selamat datang</h1>
+                    <p class="text-white">Tanggal dan Jam : <span class="text-white" id="realtime"></span></p>
                 </div>
 
                 {{-- Card Total Recti --}}
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-12">
-                        <a href="/home#filter" class="data-card" style="min-height:15em">
+                        <a href="/home#recti" class="data-card" style="min-height:15em">
                             <h3 class="text-center">All Rectifier</h3>
                             <div class="d-flex justify-content-center align-items-center" style="flex-grow: 1;">
                                 <h1 class="pb-0 mb-0">
@@ -38,7 +39,7 @@
                         </a>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12">
-                        <a href="/home?type=TTC#filter" class="data-card" style="min-height:15em">
+                        <a href="/home?type=TTC#recti" class="data-card" style="min-height:15em">
                             <h3 class="text-center">TTC Rectifier</h3>
                             <div class="d-flex justify-content-center align-items-center" style="flex-grow: 1;">
                                 <h1 class="pb-0 mb-0">
@@ -47,7 +48,7 @@
                         </a>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12">
-                        <a href="/home?type=Inner#filter" class="data-card" style="min-height:15em">
+                        <a href="/home?type=Inner#recti" class="data-card" style="min-height:15em">
                             <h3 class="text-center">Inner Rectifier</h3>
                             <div class="d-flex justify-content-center align-items-center" style="flex-grow: 1;">
                                 <h1 class="pb-0 mb-0">
@@ -56,7 +57,7 @@
                         </a>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12">
-                        <a href="/home?type=Outer#filter" class="data-card" style="min-height:15em">
+                        <a href="/home?type=Outer#recti" class="data-card" style="min-height:15em">
                             <h3 class="text-center">Outer Rectifier</h3>
                             <div class="d-flex justify-content-center align-items-center" style="flex-grow: 1;">
                                 <h1 class="pb-0 mb-0">
@@ -70,7 +71,7 @@
     @endsection
     @section('main')
         <main class="container pt-3" style="min-height:92vh">
-            <div id="filter" class="pt-3 d-flex justify-content-between">
+            <div class="pt-3 d-flex justify-content-between">
 
                 {{-- TITLE  --}}
                 <h2>{{ $title }}</h2>
@@ -138,8 +139,8 @@
                                             <div>
                                                 <span class="link-text">
                                                     Details
-                                                    <svg width="25" height="16" viewBox="0 0 25 16" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
+                                                    <svg width="25" height="16" viewBox="0 0 25 16"
+                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                                             d="M17.8631 0.929124L24.2271 7.29308C24.6176 7.68361 24.6176 8.31677 24.2271 8.7073L17.8631 15.0713C17.4726 15.4618 16.8394 15.4618 16.4489 15.0713C16.0584 14.6807 16.0584 14.0476 16.4489 13.657L21.1058 9.00019H0.47998V7.00019H21.1058L16.4489 2.34334C16.0584 1.95281 16.0584 1.31965 16.4489 0.929124C16.8394 0.538599 17.4726 0.538599 17.8631 0.929124Z"
                                                             fill="#753BBD" />
@@ -319,6 +320,23 @@
             } catch (error) {
                 console.log(error);
             }
+        });
+
+        $(document).ready(function() {
+            setInterval(function() {
+                var current_time = new Date();
+                var days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+                var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
+                    'September', 'Oktober', 'November', 'Desember'
+                ];
+                var current_day = days[current_time.getDay()];
+                var current_month = months[current_time.getMonth()];
+                var current_year = current_time.getFullYear();
+                var formatted_time = current_day + ', ' + current_time.getDate() + ' ' + current_month +
+                    ' ' + current_year + ' ' + current_time.getHours() + ':' + current_time.getMinutes() +
+                    ':' + current_time.getSeconds();
+                $('#realtime').text(formatted_time);
+            }, 1000); // Update the time every second (1000 milliseconds)
         });
     </script>
 @endsection

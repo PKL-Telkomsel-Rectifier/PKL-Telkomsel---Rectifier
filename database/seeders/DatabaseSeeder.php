@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         // Rectifier::factory(29)->create();
-        // DataRectifier::factory(100000)->create();
+        // DataRectifier::factory(500)->create();
 
         Rectifier::create([
             'name' => 'Rectifier BSS.1',
@@ -202,8 +202,291 @@ class DatabaseSeeder extends Seeder
             'version' => 2,
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
-            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        ]);
+        Rectifier::create([
+            'name' => 'Recti BSC 2',
+            'site_name' => 'Wirosari',
+            'rtpo' => 'Sragen',
+            'nsa' => 'Solo',
+            'type' => 'Inner',
+            'ip_recti' => '10.196.83.2',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        ]);
+        Rectifier::create([
+            'name' => 'Recti RNC',
+            'site_name' => 'Wirosari',
+            'rtpo' => 'Sragen',
+            'nsa' => 'Solo',
+            'type' => 'Inner',
+            'ip_recti' => '10.196.83.3',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        ]);
+        Rectifier::create([
+            'name' => 'Recti OSN',
+            'site_name' => 'Wirosari',
+            'rtpo' => 'Sragen',
+            'nsa' => 'Solo',
+            'type' => 'Inner',
+            'ip_recti' => '10.196.83.5',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        ]);
+        Rectifier::create([
+            'name' => 'Recti OSN',
+            'site_name' => 'Wirosari',
+            'rtpo' => 'Sragen',
+            'nsa' => 'Solo',
+            'type' => 'Inner',
+            'ip_recti' => '10.196.83.5',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        ]);
+        Rectifier::create([
+            'name' => 'Recti BSC 1',
+            'site_name' => 'Jiken',
+            'rtpo' => 'Sragen',
+            'nsa' => 'Solo',
+            'type' => 'Inner',
+            'ip_recti' => '10.196.97.9',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        ]);
+        Rectifier::create([
+            'name' => 'Recti BSC 2',
+            'site_name' => 'Jiken',
+            'rtpo' => 'Sragen',
+            'nsa' => 'Solo',
+            'type' => 'Inner',
+            'ip_recti' => '10.196.97.10',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        ]);
+        Rectifier::create([
+            'name' => 'Recti BTS',
+            'site_name' => 'Jiken',
+            'rtpo' => 'Sragen',
+            'nsa' => 'Solo',
+            'type' => 'Inner',
+            'ip_recti' => '10.196.97.11',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        ]);
+        Rectifier::create([
+            'name' => 'Recti BSC 1',
+            'site_name' => 'Gubug Tegowara',
+            'rtpo' => 'Sragen',
+            'nsa' => 'Solo',
+            'type' => 'Inner',
+            'ip_recti' => '10.196.68.3',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        ]);
+        Rectifier::create([
+            'name' => 'Recti BSC 2',
+            'site_name' => 'Gubug Tegowara',
+            'rtpo' => 'Sragen',
+            'nsa' => 'Solo',
+            'type' => 'Inner',
+            'ip_recti' => '10.196.68.4',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        ]);
+        Rectifier::create([
+            'name' => 'Recti BTS',
+            'site_name' => 'Gubug Tegowara',
+            'rtpo' => 'Sragen',
+            'nsa' => 'Solo',
+            'type' => 'Inner',
+            'ip_recti' => '10.196.68.5',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+        ]);
+
+
+        // OUTER
+        Rectifier::create([
+            'name' => 'BSC,OSN,RNC, RAN',
+            'site_name' => 'Margorejo',
+            'rtpo' => 'Pati',
+            'nsa' => 'Semarang',
+            'type' => 'Outer',
+            'ip_recti' => '10.196.81.7',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
+        ]);
+        Rectifier::create([
+            'name' => 'BSC,OSN,RNC, RAN',
+            'site_name' => 'Margorejo',
+            'rtpo' => 'Pati',
+            'nsa' => 'Semarang',
+            'type' => 'Outer',
+            'ip_recti' => '10.196.81.8',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
+        ]);
+        Rectifier::create([
+            'name' => 'BTS & RTN',
+            'site_name' => 'Margorejo',
+            'rtpo' => 'Pati',
+            'nsa' => 'Semarang',
+            'type' => 'Outer',
+            'ip_recti' => '10.196.81.9',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
+        ]);
+        Rectifier::create([
+            'name' => 'Recti BSC 2',
+            'site_name' => 'Jakenan',
+            'rtpo' => 'Pati',
+            'nsa' => 'Semarang',
+            'type' => 'Outer',
+            'ip_recti' => '10.196.69.34',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
+        ]);
+        Rectifier::create([
+            'name' => 'Recti BTS',
+            'site_name' => 'Jakenan',
+            'rtpo' => 'Pati',
+            'nsa' => 'Semarang',
+            'type' => 'Outer',
+            'ip_recti' => '10.196.69.35',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
+        ]);
+        Rectifier::create([
+            'name' => 'Recti BTS',
+            'site_name' => 'Jakenan',
+            'rtpo' => 'Pati',
+            'nsa' => 'Semarang',
+            'type' => 'Outer',
+            'ip_recti' => '10.196.69.36',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
+        ]);
+        Rectifier::create([
+            'name' => 'Rectifier BSC 1',
+            'site_name' => 'Bawen',
+            'rtpo' => 'Demak',
+            'nsa' => 'Semarang',
+            'type' => 'Outer',
+            'ip_recti' => '10.196.64.5',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
+        ]);
+        Rectifier::create([
+            'name' => 'Rectifier BSC 2',
+            'site_name' => 'Bawen',
+            'rtpo' => 'Demak',
+            'nsa' => 'Semarang',
+            'type' => 'Outer',
+            'ip_recti' => '10.196.64.6',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
+        ]);
+        Rectifier::create([
+            'name' => 'Rectifier BTS',
+            'site_name' => 'Bawen',
+            'rtpo' => 'Demak',
+            'nsa' => 'Semarang',
+            'type' => 'Outer',
+            'ip_recti' => '10.196.64.7',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
+        ]);
+        Rectifier::create([
+            'name' => 'Rectifier OSN',
+            'site_name' => 'Bawen',
+            'rtpo' => 'Demak',
+            'nsa' => 'Semarang',
+            'type' => 'Outer',
+            'ip_recti' => '10.196.64.8',
+            'community' => 'public',
+            'version' => 2,
+            'port' => 161,
+            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
 
         // DataRectifier::create([

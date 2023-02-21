@@ -80,8 +80,13 @@
         <div class="p-1 bg-light rounded shadow-sm mb-4">
             <form action="/home" method="GET">
                 @csrf
+
+                @if (request('type'))
+                    <input type="hidden" name="type" value="{{ request('type') }}">
+                @endif
+                
                 <div class="input-group">
-                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Search..."
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Search by sitename or ip"
                         class="form-control border-0 bg-light">
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>

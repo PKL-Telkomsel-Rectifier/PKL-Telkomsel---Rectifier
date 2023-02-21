@@ -56,7 +56,7 @@
 
     @yield('container')
 
-    <div style="background-image:url('/img/bloom-bg.jpg')">
+    <div id="recti" style="background-image:url('/img/bloom-bg.jpg')">
         @yield('main')
     </div>
 

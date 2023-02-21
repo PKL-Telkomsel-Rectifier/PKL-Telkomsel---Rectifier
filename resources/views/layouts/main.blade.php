@@ -54,8 +54,10 @@
 
     @include('partials.navbar')
 
-    <div class="container mt-4">
-        @yield('container')
+    @yield('container')
+
+    <div id="recti" style="background-image:url('/img/bloom-bg.jpg')">
+        @yield('main')
     </div>
 
 

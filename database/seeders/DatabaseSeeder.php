@@ -189,7 +189,7 @@ class DatabaseSeeder extends Seeder
             'oid_current' => '.1.3.6.1.4.1.2011.6.164.1.6.1.4.0',
             'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
         ]);
-        
+
         // INNER 
         Rectifier::create([
             'name' => 'Recti BSC 1',
@@ -203,7 +203,7 @@ class DatabaseSeeder extends Seeder
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
         Rectifier::create([
             'name' => 'Recti BSC 2',
@@ -217,7 +217,7 @@ class DatabaseSeeder extends Seeder
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
         Rectifier::create([
             'name' => 'Recti RNC',
@@ -231,7 +231,7 @@ class DatabaseSeeder extends Seeder
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
         Rectifier::create([
             'name' => 'Recti OSN',
@@ -245,21 +245,7 @@ class DatabaseSeeder extends Seeder
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
-        ]);
-        Rectifier::create([
-            'name' => 'Recti OSN',
-            'site_name' => 'Wirosari',
-            'rtpo' => 'Sragen',
-            'nsa' => 'Solo',
-            'type' => 'Inner',
-            'ip_recti' => '10.196.83.5',
-            'community' => 'public',
-            'version' => 2,
-            'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
-            'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
         Rectifier::create([
             'name' => 'Recti BSC 1',
@@ -273,7 +259,7 @@ class DatabaseSeeder extends Seeder
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
         Rectifier::create([
             'name' => 'Recti BSC 2',
@@ -287,7 +273,7 @@ class DatabaseSeeder extends Seeder
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
         Rectifier::create([
             'name' => 'Recti BTS',
@@ -301,7 +287,7 @@ class DatabaseSeeder extends Seeder
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
         Rectifier::create([
             'name' => 'Recti BSC 1',
@@ -315,7 +301,7 @@ class DatabaseSeeder extends Seeder
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
         Rectifier::create([
             'name' => 'Recti BSC 2',
@@ -329,7 +315,7 @@ class DatabaseSeeder extends Seeder
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
         Rectifier::create([
             'name' => 'Recti BTS',
@@ -343,7 +329,7 @@ class DatabaseSeeder extends Seeder
             'port' => 161,
             'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
-            'oid_temp' => '.1.3.6.1.4.1.2011.6.164.1.4.2.5.0'
+            'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
 
 
@@ -391,12 +377,12 @@ class DatabaseSeeder extends Seeder
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
         Rectifier::create([
-            'name' => 'Recti BSC 2',
-            'site_name' => 'Jakenan',
+            'name' => 'Recti BTS,OSN Main',
+            'site_name' => 'Jekulo',
             'rtpo' => 'Pati',
             'nsa' => 'Semarang',
             'type' => 'Outer',
-            'ip_recti' => '10.196.69.34',
+            'ip_recti' => '10.196.79.1',
             'community' => 'public',
             'version' => 2,
             'port' => 161,
@@ -405,12 +391,12 @@ class DatabaseSeeder extends Seeder
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
         Rectifier::create([
-            'name' => 'Recti BTS',
-            'site_name' => 'Jakenan',
+            'name' => 'Recti BTS,OSN Standby',
+            'site_name' => 'Jekulo',
             'rtpo' => 'Pati',
             'nsa' => 'Semarang',
             'type' => 'Outer',
-            'ip_recti' => '10.196.69.35',
+            'ip_recti' => '10.196.79.2',
             'community' => 'public',
             'version' => 2,
             'port' => 161,
@@ -419,12 +405,12 @@ class DatabaseSeeder extends Seeder
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
         Rectifier::create([
-            'name' => 'Recti BTS',
-            'site_name' => 'Jakenan',
-            'rtpo' => 'Pati',
+            'name' => 'Rect BSC 1',
+            'site_name' => 'Taunan',
+            'rtpo' => 'Demak',
             'nsa' => 'Semarang',
             'type' => 'Outer',
-            'ip_recti' => '10.196.69.36',
+            'ip_recti' => '10.196.93.51',
             'community' => 'public',
             'version' => 2,
             'port' => 161,
@@ -480,7 +466,7 @@ class DatabaseSeeder extends Seeder
             'rtpo' => 'Demak',
             'nsa' => 'Semarang',
             'type' => 'Outer',
-            'ip_recti' => '10.196.64.8',
+            'ip_recti' => '10.196.64.9',
             'community' => 'public',
             'version' => 2,
             'port' => 161,

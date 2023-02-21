@@ -6,8 +6,6 @@ use App\Models\Rectifier;
 use Illuminate\Http\Request;
 use App\Models\DataRectifier;
 use Illuminate\Support\Carbon;
-use App\Http\Requests\StoreDataRectifierRequest;
-use App\Http\Requests\UpdateDataRectifierRequest;
 
 class DataRectifierController extends Controller
 {
@@ -123,16 +121,5 @@ class DataRectifierController extends Controller
             ];
         }
         return response()->json(compact('labels', 'datasetsVol', 'datasetsCur', 'datasetsTmp'));
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\DataRectifier  $dataRectifier
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Rectifier $rectifier)
-    {
-        DataRectifier::destroy('rectifier_id', $rectifier->id);
     }
 }

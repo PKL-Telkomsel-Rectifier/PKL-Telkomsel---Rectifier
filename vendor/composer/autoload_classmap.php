@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\ChartController' => $baseDir . '/app/Http/Controllers/ChartController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\DataRectifierController' => $baseDir . '/app/Http/Controllers/DataRectifierController.php',
     'App\\Http\\Controllers\\LoginController' => $baseDir . '/app/Http/Controllers/LoginController.php',
@@ -27,6 +28,7 @@ return array(
     'App\\Http\\Requests\\UpdateDataRectifierRequest' => $baseDir . '/app/Http/Requests/UpdateDataRectifierRequest.php',
     'App\\Http\\Requests\\UpdateRectifierRequest' => $baseDir . '/app/Http/Requests/UpdateRectifierRequest.php',
     'App\\Models\\DataRectifier' => $baseDir . '/app/Models/DataRectifier.php',
+    'App\\Models\\HistoryRectifier' => $baseDir . '/app/Models/HistoryRectifier.php',
     'App\\Models\\Rectifier' => $baseDir . '/app/Models/Rectifier.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Policies\\DataRectifierPolicy' => $baseDir . '/app/Policies/DataRectifierPolicy.php',

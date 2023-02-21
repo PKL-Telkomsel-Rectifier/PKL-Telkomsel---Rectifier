@@ -76,4 +76,9 @@ class Rectifier extends Model
     {
         return $this->hasMany(DataRectifier::class);
     }
+
+    public function historyRectifiers()
+    {
+        return $this->hasMany(HistoryRectifier::class);
+    }
 }

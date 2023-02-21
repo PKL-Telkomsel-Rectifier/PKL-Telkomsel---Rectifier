@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('data_rectifiers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('rectifier_id');
+            $table->foreignId('rectifier_id')->constrained('rectifiers')->onDelete('cascade');
             $table->double('voltage');
             $table->double('current');
             $table->double('temp');

@@ -70,6 +70,7 @@
         {{-- SEARCH  --}}
         <div class="p-1 bg-light rounded shadow-sm mb-4">
             <form action="/home" method="GET">
+                @csrf
                 <div class="input-group">
                     <input type="text" name="search" value="{{ request('search') }}" placeholder="Search..."
                         class="form-control border-0 bg-light">

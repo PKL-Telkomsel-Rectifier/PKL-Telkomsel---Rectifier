@@ -526,6 +526,7 @@ class ComposerStaticInitd3f1aaaaf4cc21cdd2757d64f33fe21e
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\ChartController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChartController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DataRectifierController' => __DIR__ . '/../..' . '/app/Http/Controllers/DataRectifierController.php',
         'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',
@@ -545,6 +546,7 @@ class ComposerStaticInitd3f1aaaaf4cc21cdd2757d64f33fe21e
         'App\\Http\\Requests\\UpdateDataRectifierRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateDataRectifierRequest.php',
         'App\\Http\\Requests\\UpdateRectifierRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateRectifierRequest.php',
         'App\\Models\\DataRectifier' => __DIR__ . '/../..' . '/app/Models/DataRectifier.php',
+        'App\\Models\\HistoryRectifier' => __DIR__ . '/../..' . '/app/Models/HistoryRectifier.php',
         'App\\Models\\Rectifier' => __DIR__ . '/../..' . '/app/Models/Rectifier.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Policies\\DataRectifierPolicy' => __DIR__ . '/../..' . '/app/Policies/DataRectifierPolicy.php',

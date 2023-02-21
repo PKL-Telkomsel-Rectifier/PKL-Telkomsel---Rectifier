@@ -76,20 +76,20 @@
                 {{-- TITLE  --}}
                 <h2>{{ $title }}</h2>
 
-                {{-- SEARCH  --}}
-                <div class="p-1 bg-light rounded shadow-sm mb-4">
-                    <form action="/home" method="GET">
-                        <div class="input-group">
-                            <input type="text" name="search" value="{{ request('search') }}" placeholder="Search..."
-                                class="form-control border-0 bg-light">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-link text-primary"><i
-                                        class="fa fa-search"></i></button>
-                            </div>
-                        </div>
-                    </form>
+        {{-- SEARCH  --}}
+        <div class="p-1 bg-light rounded shadow-sm mb-4">
+            <form action="/home" method="GET">
+                @csrf
+                <div class="input-group">
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Search..."
+                        class="form-control border-0 bg-light">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+                    </div>
                 </div>
-            </div>
+            </form>
+        </div>
+    </div>
 
             {{-- CONTENT  --}}
             <div class="row">

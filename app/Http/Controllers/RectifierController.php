@@ -27,7 +27,7 @@ class RectifierController extends Controller
 
         return view('home', [
             'rectifiers' => Rectifier::latest()->filter(request(['search', 'type']))
-                ->paginate(8)->withQueryString(),
+                ->paginate(4)->withQueryString(),
             'title' => 'All Rectifier' . $title,
             'type' => request('type'),
             'search' => request('search'),

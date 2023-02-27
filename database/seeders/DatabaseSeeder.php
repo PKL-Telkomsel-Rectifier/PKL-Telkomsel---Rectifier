@@ -201,7 +201,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -215,7 +215,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -229,7 +229,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -243,7 +243,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -257,7 +257,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -271,7 +271,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -285,7 +285,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -299,7 +299,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -313,7 +313,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -327,7 +327,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.40.10.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -344,7 +344,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -358,7 +358,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -372,7 +372,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -386,7 +386,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -400,7 +400,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -414,7 +414,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -428,7 +428,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -442,7 +442,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -456,7 +456,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);
@@ -470,7 +470,7 @@ class DatabaseSeeder extends Seeder
             'community' => 'public',
             'version' => 2,
             'port' => 161,
-            'oid_voltage' => '1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
+            'oid_voltage' => '.1.3.6.1.4.1.1918.2.13.10.70.10.20.0',
             'oid_current' => '.1.3.6.1.4.1.1918.2.13.10.50.10.0',
             'oid_temp' => '.1.3.6.1.4.1.1918.2.13.10.100.30.0'
         ]);

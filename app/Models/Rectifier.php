@@ -73,7 +73,7 @@ class Rectifier extends Model
             'community' => $rectifier->community
         ]);
 
-        $result = $snmp->getValue($rectifier->oid_temp) / 10;
+        $result = $snmp->getValue($rectifier->oid_temp);
 
         return $result;
     }

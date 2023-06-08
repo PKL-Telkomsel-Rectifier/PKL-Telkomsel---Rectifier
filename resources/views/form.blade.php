@@ -2,8 +2,8 @@
 
 @section('container')
     <div class="container my-2 d-flex align-items-center justify-content-center">
-        <div class="card py-4 mt-2 w-100" style="background-image:url('/img/memphis-bg.jpg')">
-            <div class="container text-center mb-3">
+        <div class="card py-4 mt-2 vw-100" style="background-image:url('/img/memphis-bg.jpg')">
+            <div class="container text-center mb-">
                 <h1>Form Add Rectifier</h1>
             </div>
 

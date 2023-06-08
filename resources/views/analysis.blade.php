@@ -3,7 +3,7 @@
 @section('container')
     <div class="container">
         <div class="container mb-4 text-center">
-            <h1 class="mt-3">TTC Analysis Chart</h1>
+            <h1 class="mt-3">Analysis Chart</h1>
         </div>
 
 

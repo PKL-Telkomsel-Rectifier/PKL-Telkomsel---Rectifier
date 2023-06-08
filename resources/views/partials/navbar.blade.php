@@ -50,12 +50,6 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                     <li>
-                        <a class="dropdown-item" href="#">My profile</a>
-                    </li>
-                    <li>
-                        <hr class="m-0 dropdown-divider">
-                    </li>
-                    <li>
                         @auth
                             <form action="/logout" method="POST">
                                 @csrf

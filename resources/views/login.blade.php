@@ -49,8 +49,8 @@
 
 <body>
     <section class="vh-100" style="background-image: url('/img/bloom-bg.jpg')">
-        <div class="container py-4 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="container py-4 vh-100">
+            <div class="row d-flex justify-content-center align-items-center vh-100">
                 <div class="col col-xl-10">
 
                     <div class="card shadow-lg mt-3 mb-5" style="border-radius: 1rem;">
